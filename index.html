@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="theme-color" content="#ffffff">
+<title>김진규 | 인천 검단구청장 예비후보 | 더불어민주당</title>
+<meta name="description" content="명품 자족도시 검단, 첫 단추는 김진규입니다!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="김진규 | 검단구청장 예비후보">
+<meta property="og:description" content="명품 자족도시 검단, 첫 단추는 김진규입니다!">
+<meta property="og:image" content="images/og-image.png">
+<meta property="og:locale" content="ko_KR">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Noto Sans KR',sans-serif;color:#111;background:#fff;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit;-webkit-tap-highlight-color:transparent}
+button{border:none;background:none;cursor:pointer;font-family:inherit}
+
+:root{
+--black:#111;
+--white:#fff;
+--gray-50:#fafafa;
+--gray-100:#f5f5f5;
+--gray-200:#e5e5e5;
+--gray-300:#d4d4d4;
+--gray-400:#a3a3a3;
+--gray-500:#737373;
+--gray-600:#525252;
+--gray-700:#404040;
+--gray-800:#262626;
+--gray-900:#171717;
+--blue:#004EA2;
+--ease:cubic-bezier(.22,1,.36,1);
+}
+
+/*══════════════════════════════════════════════
+  NAV
+══════════════════════════════════════════════*/
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--gray-200)}
+.nav-left{display:flex;align-items:center;gap:8px}
+.nav-logo{height:16px;width:auto}
+.nav-num{height:22px;width:auto}
+.nav-name{font-size:20px;font-weight:900;color:var(--black);letter-spacing:-1px}
+.nav-share{width:32px;height:32px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s,opacity .2s}
+.nav-share:active{transform:scale(.9);opacity:.7}
+.nav-share svg{width:14px;height:14px;stroke:white;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/*══════════════════════════════════════════════
+  HERO — 풀블리드 사진 + 슬로건 바
+══════════════════════════════════════════════*/
+.hero{margin-top:49px;padding-top:16px}
+/* DESIGNER: images/hero-photo.jpg — 후보 클로즈업/반신 사진. 가로로 넓게, 세피아 또는 흑백 톤 권장 */
+.hero-photo{width:100%;aspect-ratio:4/5;background:var(--gray-200);overflow:hidden;position:relative}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:saturate(.3) contrast(1.05)}
+.hero-photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gray-200),var(--gray-300));color:var(--gray-400);font-size:13px}
+
+.hero-slogan{background:var(--black);padding:28px 24px;color:var(--white)}
+.hero-slogan h1{font-size:clamp(28px,8vw,42px);font-weight:900;line-height:1.15;letter-spacing:-1.5px}
+
+/*══════════════════════════════════════════════
+  SNS GRID — 4분할
+══════════════════════════════════════════════*/
+.sns-grid{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--gray-200)}
+.sns-cell{display:flex;align-items:center;justify-content:center;padding:36px 0;border-right:1px solid var(--gray-200);background:var(--gray-100);transition:background .2s}
+.sns-cell:nth-child(3n){border-right:none}
+.sns-cell:nth-child(-n+3){border-bottom:1px solid var(--gray-200)}
+.sns-cell:active{background:var(--gray-200)}
+.sns-cell svg{width:22px;height:22px;fill:var(--black)}
+.sns-cell.stroke-icon svg{fill:none;stroke:var(--black);stroke-width:1.8}
+.sns-cell[data-empty]{opacity:.25;pointer-events:none}
+
+/*══════════════════════════════════════════════
+  SECTION COMMONS
+══════════════════════════════════════════════*/
+.sec{padding:56px 24px;border-bottom:1px solid var(--gray-200)}
+.sec-label{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray-400);margin-bottom:16px}
+.sec-title{font-size:clamp(26px,7vw,36px);font-weight:900;line-height:1.15;letter-spacing:-1.5px;color:var(--black);margin-bottom:12px}
+.sec-desc{font-size:14px;color:var(--gray-500);line-height:1.7;margin-bottom:32px}
+
+/*══════════════════════════════════════════════
+  SUB HERO — 이력/업적/기사
+══════════════════════════════════════════════*/
+.cred-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--gray-200);margin-bottom:32px}
+.cred-item{text-align:center;padding:24px 12px;border-right:1px solid var(--gray-200)}
+.cred-item:last-child{border-right:none}
+.cred-num{font-size:clamp(30px,9vw,40px);font-weight:900;color:var(--black);line-height:1.1;margin-bottom:2px;letter-spacing:-1px}
+.cred-label{font-size:10px;color:var(--gray-500);font-weight:500;letter-spacing:.5px}
+
+.career-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200);margin-bottom:32px}
+.career-item{display:flex;gap:14px;align-items:baseline;padding:16px 18px;border-bottom:1px solid var(--gray-200)}
+.career-item:last-child{border-bottom:none}
+.career-dot{width:6px;height:6px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:2px}
+.career-text{font-size:14px;font-weight:600;color:var(--black);line-height:1.5}
+.career-sub{font-size:11px;color:var(--gray-400);font-weight:400;margin-top:1px}
+
+.news-row{display:flex;gap:0;border:1px solid var(--gray-200);overflow-x:auto;scrollbar-width:none}
+.news-row::-webkit-scrollbar{display:none}
+.news-card{flex:0 0 80%;padding:18px;border-right:1px solid var(--gray-200);transition:background .2s}
+.news-card:active{background:var(--gray-50)}
+.news-thumb{width:100%;aspect-ratio:4/3;background:var(--gray-100);overflow:hidden;margin-bottom:12px}
+.news-thumb img{width:100%;height:100%;object-fit:cover}
+.news-card h4{font-size:14px;font-weight:700;color:var(--black);line-height:1.45;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news-source{font-size:10px;color:var(--gray-400);letter-spacing:.5px}
+
+/*══════════════════════════════════════════════
+  PROBLEM — 우→좌 슬라이드
+══════════════════════════════════════════════*/
+.prob-track{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border:1px solid var(--gray-200)}
+.prob-track::-webkit-scrollbar{display:none}
+.prob-card{flex:0 0 85%;scroll-snap-align:start;padding:32px 24px;border-right:1px solid var(--gray-200);position:relative}
+.prob-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--black)}
+.prob-num{font-size:11px;font-weight:700;color:var(--gray-400);letter-spacing:2px;margin-bottom:14px}
+.prob-card h3{font-size:22px;font-weight:900;color:var(--black);letter-spacing:-.5px;margin-bottom:8px;line-height:1.25}
+.prob-card p{font-size:13px;color:var(--gray-500);line-height:1.65}
+
+.track-dots{display:flex;justify-content:center;gap:6px;padding:20px 0 0}
+.track-dots .dot{width:6px;height:6px;border-radius:50%;background:var(--gray-300);transition:all .3s var(--ease)}
+.track-dots .dot.on{background:var(--black);width:20px;border-radius:4px}
+
+/*══════════════════════════════════════════════
+  SOLUTION — 좌→우 슬라이드
+══════════════════════════════════════════════*/
+.sol-track{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200)}
+.sol-card{padding:0;margin-bottom:0;position:relative;cursor:pointer;flex-shrink:0;overflow:hidden;background:var(--white);border-bottom:1px solid var(--gray-200);transition:background .25s var(--ease)}
+.sol-card:active{background:var(--gray-50)}
+/* 워터마크 넘버 */
+.sol-card::after{content:attr(data-num);position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:clamp(72px,20vw,100px);font-weight:900;color:var(--gray-100);line-height:1;pointer-events:none;letter-spacing:-4px}
+.sol-inner{position:relative;z-index:1;padding:24px 20px;display:flex;gap:16px;align-items:flex-start}
+.sol-num-badge{width:36px;height:36px;border-radius:50%;background:var(--black);color:var(--white);font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.sol-text{flex:1;min-width:0}
+.sol-cat{display:block;font-size:9px;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:4px}
+.sol-card h3{font-size:16px;font-weight:900;color:var(--black);letter-spacing:-.3px;margin-bottom:3px;line-height:1.3}
+.sol-card p,.sol-text p{font-size:12px;color:var(--gray-500);line-height:1.5}
+
+/*══════════════════════════════════════════════
+  CONTENTS — 썸네일 그리드
+══════════════════════════════════════════════*/
+.thumb-grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--gray-200)}
+.thumb-item{aspect-ratio:1/1;overflow:hidden;border-right:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);position:relative;background:var(--gray-100);transition:opacity .2s}
+.thumb-item:nth-child(2n){border-right:none}
+.thumb-item:nth-last-child(-n+2){border-bottom:none}
+.thumb-item:active{opacity:.85}
+.thumb-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
+.thumb-item:hover img{transform:scale(1.03)}
+.thumb-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 40%);display:flex;align-items:flex-end;padding:14px}
+.thumb-overlay span{font-size:12px;font-weight:700;color:white}
+.thumb-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--gray-400);font-size:11px;font-weight:500}
+.thumb-ph svg{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:1.5;opacity:.4}
+
+/*══════════════════════════════════════════════
+  YOUTUBE
+══════════════════════════════════════════════*/
+.yt-long{margin-bottom:24px}
+.yt-label{font-size:9px;font-weight:700;letter-spacing:3px;color:var(--gray-400);margin-bottom:12px;text-transform:uppercase}
+.yt-embed{position:relative;width:100%;padding-bottom:56.25%;background:var(--gray-100);border:1px solid var(--gray-200);overflow:hidden}
+.yt-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.yt-embed-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--gray-400);font-size:12px}
+.yt-embed-ph .play-btn{width:56px;height:56px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.yt-embed-ph .play-btn:hover{transform:scale(1.05)}
+.yt-embed-ph .play-btn svg{width:22px;height:22px;fill:white;margin-left:3px}
+
+.yt-shorts-row{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border:1px solid var(--gray-200)}
+.yt-shorts-row::-webkit-scrollbar{display:none}
+.yt-short{flex:0 0 42%;border-right:1px solid var(--gray-200);aspect-ratio:9/16;overflow:hidden;background:var(--gray-100);position:relative;transition:opacity .2s}
+.yt-short:active{opacity:.85}
+.yt-short iframe{width:100%;height:100%;border:0}
+.yt-short-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:var(--gray-400);font-size:11px}
+.yt-short-ph .play-btn{width:40px;height:40px;border-radius:50%;background:var(--black);display:flex;align-items:center;justify-content:center}
+.yt-short-ph .play-btn svg{width:18px;height:18px;fill:white;margin-left:2px}
+
+/*══════════════════════════════════════════════
+  CAMPAIGN
+══════════════════════════════════════════════*/
+.camp-grid{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--gray-200)}
+.camp-card{padding:32px 20px;border-right:1px solid var(--gray-200);transition:background .2s;position:relative}
+.camp-card:last-child{border-right:none}
+.camp-card:active{background:var(--gray-50)}
+.camp-icon{width:44px;height:44px;border-radius:50%;background:var(--gray-100);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.camp-icon svg{width:20px;height:20px;stroke:var(--black);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.camp-card h3{font-size:15px;font-weight:800;color:var(--black);margin-bottom:4px;letter-spacing:-.3px}
+.camp-card p{font-size:11px;color:var(--gray-500);line-height:1.55}
+.camp-arrow{position:absolute;top:20px;right:18px;color:var(--gray-300)}
+.camp-arrow svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+/*══════════════════════════════════════════════
+  ACHIEVEMENT
+══════════════════════════════════════════════*/
+.achieve-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200)}
+.achieve-item{display:flex;gap:16px;align-items:flex-start;padding:20px 18px;border-bottom:1px solid var(--gray-200);position:relative}
+.achieve-item:last-child{border-bottom:none}
+.achieve-num{font-size:10px;font-weight:800;color:var(--gray-400);letter-spacing:1px;position:absolute;top:10px;right:14px}
+.achieve-item h3{font-size:15px;font-weight:800;color:var(--black);line-height:1.35;margin-bottom:3px;letter-spacing:-.3px}
+.achieve-item h3 em{font-style:normal;color:var(--blue)}
+.achieve-item p{font-size:12px;color:var(--gray-500);line-height:1.55}
+
+/*══════════════════════════════════════════════
+  TAP HINT
+══════════════════════════════════════════════*/
+.tap-hint{position:absolute;bottom:14px;right:24px;display:flex;align-items:center;gap:5px;color:var(--gray-400);font-size:10px;font-weight:600;pointer-events:none;animation:tapFade 3s ease infinite}
+.tap-hint svg{width:22px;height:22px;fill:none;stroke:var(--gray-400);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;animation:tapTap 1.5s ease-in-out 3}
+@keyframes tapTap{0%,100%{transform:translate(0,0) scale(1)}20%{transform:translate(-6px,3px) scale(.88)}40%{transform:translate(0,0) scale(1)}60%{transform:translate(-6px,3px) scale(.88)}80%{transform:translate(0,0) scale(1)}}
+@keyframes tapFade{0%,40%{opacity:1}50%,60%{opacity:0}70%,100%{opacity:1}}
+
+/*══════════════════════════════════════════════
+  IMAGE POPUP
+══════════════════════════════════════════════*/
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px;cursor:pointer;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.popup-overlay.open{display:flex}
+.popup-overlay img{max-width:100%;max-height:90vh;object-fit:contain;border-radius:4px;box-shadow:0 8px 40px rgba(0,0,0,.5);animation:popIn .25s var(--ease)}
+@keyframes popIn{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1)}}
+.popup-close{position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+.popup-close:hover{background:rgba(255,255,255,.3)}
+.popup-close svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:2.5;stroke-linecap:round}
+.popup-nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s}
+.popup-nav:hover{background:rgba(255,255,255,.3)}
+.popup-nav svg{width:20px;height:20px;stroke:white;fill:none;stroke-width:2.5;stroke-linecap:round}
+.popup-prev{left:12px}
+.popup-next{right:12px}
+.popup-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.5);font-size:12px;font-weight:600}
+
+/*══════════════════════════════════════════════
+  FOOTER
+══════════════════════════════════════════════*/
+.footer{padding:40px 24px;text-align:center;border-top:1px solid var(--gray-200)}
+.footer-name{font-size:14px;font-weight:800;color:var(--black);margin-bottom:4px}
+.footer-info{font-size:10px;color:var(--gray-400);line-height:1.7;margin-bottom:16px}
+.footer-line{width:32px;height:1px;background:var(--gray-200);margin:0 auto 16px}
+.footer-copy{font-size:10px;color:var(--gray-300)}
+
+/*══════════════════════════════════════════════
+  SCROLL REVEAL
+══════════════════════════════════════════════*/
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}.d4{transition-delay:.24s}
+
+/*══════════════════════════════════════════════
+  RESPONSIVE
+══════════════════════════════════════════════*/
+@media(max-width:380px){
+.sns-grid{grid-template-columns:repeat(2,1fr)}
+.sns-cell:nth-child(3n){border-right:1px solid var(--gray-200)}
+.sns-cell:nth-child(2n){border-right:none}
+.sns-cell{border-bottom:1px solid var(--gray-200)}
+.sns-cell:nth-last-child(-n+2){border-bottom:none}
+.cred-row{grid-template-columns:1fr 1fr}
+.cred-item:nth-child(2){border-right:none}
+.cred-item:last-child{grid-column:span 2;border-top:1px solid var(--gray-200);border-right:none}
+.camp-grid{grid-template-columns:1fr}
+.camp-card{border-right:none;border-bottom:1px solid var(--gray-200)}
+.camp-card:last-child{border-bottom:none}
+}
+@media(min-width:641px){
+.hero-photo{aspect-ratio:16/8}
+.prob-card,.sol-card{flex:0 0 55%}
+.news-card{flex:0 0 55%}
+.thumb-grid{grid-template-columns:repeat(3,1fr)}
+.thumb-item:nth-child(2n){border-right:1px solid var(--gray-200)}
+.thumb-item:nth-child(3n){border-right:none}
+.yt-short{flex:0 0 30%}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+<div class="nav-left">
+<img src="images/party-logo.png" alt="더불어민주당" class="nav-logo">
+<img src="images/num1.png" alt="기호1번" class="nav-num">
+<span class="nav-name">김진규</span>
+</div>
+<div class="nav-share" id="shareBtn" role="button" aria-label="공유하기">
+<svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+</div>
+</nav>
+
+<main>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+<!-- DESIGNER: images/hero-photo.jpg — 후보 클로즈업/반신 사진 (가로 넓게, 세피아 또는 모노톤 권장) -->
+<div class="hero-photo">
+<img src="images/hero-photo.png" alt="김진규" data-fallback="placeholder">
+</div>
+<div class="hero-slogan">
+<h1>명품 자족도시 검단,<br>첫 단추는 김진규</h1>
+</div>
+</header>
+
+<!-- ═══════════ SNS GRID ═══════════ -->
+<div class="sns-grid">
+<a href="https://www.instagram.com/inaive2003/" class="sns-cell stroke-icon" target="_blank" rel="noopener" aria-label="Instagram">
+<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
+</a>
+<a href="https://www.youtube.com/@%EA%B2%80%EB%8B%A81000%EB%85%84" class="sns-cell" target="_blank" rel="noopener" aria-label="YouTube">
+<svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" fill="white"/></svg>
+</a>
+<a href="https://www.facebook.com/inaive2003/" class="sns-cell" target="_blank" rel="noopener" aria-label="Facebook">
+<svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+</a>
+<a href="https://www.threads.com/@inaive2003" class="sns-cell" target="_blank" rel="noopener" aria-label="Threads">
+<svg viewBox="0 0 24 24"><path d="M12.186 24h-.007C5.965 24 2.2 19.83 2.2 14.63v-.058c.034-5.478 3.975-9.964 9.467-10.478.263-.025.527-.04.79-.045C14.07 4.013 15.61 4.4 16.89 5.2c1.178.74 2.098 1.835 2.666 3.168l-2.12.896c-.384-.9-1.005-1.636-1.796-2.13-.862-.537-1.89-.795-2.975-.746-3.59.17-5.6 2.99-5.63 6.24-.03 3.426 2.2 6.353 5.63 6.353 2.19 0 3.7-.93 4.53-2.79.46-1.02.64-2.2.54-3.51-.47.24-1 .43-1.56.56-1.7.39-3.55.2-4.63-.99-.77-.85-1.12-2-.99-3.24.2-1.93 1.68-3.47 3.6-3.73 1.04-.14 2.08.1 2.93.69.62.43 1.1 1.02 1.4 1.72l.02-.14c.07-.5.1-1.01.1-1.53 0-.46-.03-.91-.1-1.35l2.07-.35c.08.52.13 1.06.13 1.62 0 .72-.05 1.42-.16 2.1-.04.22-.08.43-.13.64.02.37.02.75 0 1.13-.2 3.82-1.88 6.47-4.67 7.66-1.3.55-2.78.79-4.26.69z"/></svg>
+</a>
+<a href="https://x.com/Inavie2003" class="sns-cell" target="_blank" rel="noopener" aria-label="X">
+<svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+</a>
+<a href="https://blog.naver.com/inaive2003" class="sns-cell" target="_blank" rel="noopener" aria-label="네이버블로그">
+<svg viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 2H2v20h5.726V11.156L16.624 22H22V2h-5.727z"/></svg>
+</a>
+</div>
+
+<!-- ═══════════ SUB HERO — 가걸어온 길 ═══════════ -->
+<section class="sec" id="about">
+<div class="sec-label reveal">ABOUT</div>
+<h2 class="sec-title reveal">김진규가 걸어온 길</h2>
+
+<div class="career-list reveal">
+<div class="career-item"><div class="career-dot"></div><div><div class="career-text">현) 더불어민주당대표 특별보좌관</div><div class="career-sub">전략기획위원회 부위원장</div></div></div>
+<div class="career-item"><div class="career-dot"></div><div><div class="career-text">현) 더불어민주당 인천서구(병) 수석부위원장</div></div></div>
+<div class="career-item"><div class="career-dot"></div><div><div class="career-text">현) 더민주인천혁신회의 공동대표</div></div></div>
+<div class="career-item"><div class="career-dot"></div><div><div class="career-text">제8대 인천광역시의회 의원</div><div class="career-sub">제1부의장 · 교육위원회위원</div></div></div>
+<div class="career-item"><div class="career-dot"></div><div><div class="career-text">제7대 인천광역시의회 의원</div><div class="career-sub">예산결산특별위원장 · 윤리특별위원회부위원장</div></div></div>
+<div class="career-item"><div class="career-dot"></div><div><div class="career-text">제6대 인천광역시 서구의회의원</div></div></div>
+<div class="career-item"><div class="career-dot"></div><div><div class="career-text">더불어민주당 1급포상 2회 수상</div><div class="career-sub">이재명 당대표 · 2024 / 2022</div></div></div>
+</div>
+
+<!-- 주요기사 -->
+<div class="sec-label reveal">IN THE NEWS</div>
+<div style="position:relative">
+<div class="tap-hint"><svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>탭하여 기사 보기</div>
+</div>
+<div class="news-row reveal" id="newsTrack">
+<a href="https://www.joongboo.com/news/articleView.html?idxno=1022896" class="news-card" target="_blank" rel="noopener"><div class="news-thumb"><img src="images/news-thumb-1.png" alt="" loading="lazy"></div><h4>서구 검단지역 부족한 문화시설, 마전도서관 건립 꼭 이루고 싶어</h4><span class="news-source">중부일보</span></a>
+<a href="https://www.kmaeil.com/news/articleView.html?idxno=634431" class="news-card" target="_blank" rel="noopener"><div class="news-thumb"><img src="images/news-thumb-2.jpg" alt="" loading="lazy"></div><h4>검단구 청년 일자리 창출 포문 열다</h4><span class="news-source">경기매일</span></a>
+<a href="https://www.jonghapnews.com/news/articleView.html?idxno=479711" class="news-card" target="_blank" rel="noopener"><div class="news-thumb"><img src="images/news-thumb-3.jpg" alt="" loading="lazy"></div><h4>검단신도시 도시 경쟁력 강화 활성화 계획 발표</h4><span class="news-source">종합뉴스</span></a>
+</div>
+</section>
+
+<!-- ═══════════ ACHIEVEMENT ═══════════ -->
+<section class="sec" id="achievement" style="padding:0;border-bottom:1px solid var(--gray-200)">
+<img src="images/홍보물2.jpg" alt="성과가 남다른 검증된 행정전문가 김진규" style="width:100%;display:block" loading="lazy">
+</section>
+
+<!-- ═══════════ SOLUTION ═══════════ -->
+<section class="sec" id="solution">
+<div class="sec-label reveal" style="color:var(--blue)">SOLUTION</div>
+<h2 class="sec-title reveal">김진규의 해법,<br>주요 공약</h2>
+<p class="sec-desc reveal">문제를 아는 사람이 답을 만듭니다.</p>
+
+<div style="position:relative">
+<div class="tap-hint">
+<svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>
+탭하여 상세 보기
+</div>
+</div>
+<div class="sol-track" id="solTrack">
+<div class="sol-card" data-popup="images/홍보물1.jpg" data-num="01">
+<div class="sol-inner"><span class="sol-num-badge">1</span><div class="sol-text"><span class="sol-cat">경제</span><h3>AI 산업 활성화 자족도시</h3><p>창업 인큐베이터, AI밸리 조성, 소상공인 스마트 상생</p></div></div>
+</div>
+<div class="sol-card" data-popup="images/홍보물3.jpg" data-num="02">
+<div class="sol-inner"><span class="sol-num-badge">2</span><div class="sol-text"><span class="sol-cat">교통</span><h3>사통팔달 교통 도시 검단</h3><p>GTX-D, 5호선·2호선·3호선 연장, 광역버스 확충</p></div></div>
+</div>
+<div class="sol-card" data-popup="images/홍보물4.jpg" data-num="03">
+<div class="sol-inner"><span class="sol-num-badge">3</span><div class="sol-text"><span class="sol-cat">교육</span><h3>미래를 여는 교육도시</h3><p>과밀학급 해소, AI 특성화고, 평생학습 인프라</p></div></div>
+</div>
+<div class="sol-card" data-popup="images/홍보물5.jpg" data-num="04">
+<div class="sol-inner"><span class="sol-num-badge">4</span><div class="sol-text"><span class="sol-cat">문화</span><h3>문화가 흐르는 도시</h3><p>문화예술회관 건립, 수변공간 활성화, 도서관 확충</p></div></div>
+</div>
+<div class="sol-card" data-popup="images/홍보물2.jpg" data-num="05">
+<div class="sol-inner"><span class="sol-num-badge">5</span><div class="sol-text"><span class="sol-cat">미래에너지</span><h3>매립지에서 에너지 중심으로</h3><p>분산에너지 특구, 新에너지 산단, 에너지 기회소득</p></div></div>
+</div>
+<div class="sol-card" data-popup="images/홍보물6.jpg" data-num="06">
+<div class="sol-inner"><span class="sol-num-badge">6</span><div class="sol-text"><span class="sol-cat">도시인프라</span><h3>살기 좋은 도시 기반</h3><p>다목적체육관, 공원·녹지, 스마트 도시 인프라</p></div></div>
+</div>
+<div class="sol-card" data-num="07">
+<div class="sol-inner"><span class="sol-num-badge">7</span><div class="sol-text"><span class="sol-cat">생활·환경</span><h3>365일 안심 돌봄</h3><p>24시 긴급돌봄, AI 스마트 돌봄, 학교 공기질 개선</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- ═══════════ CONTENTS ═══════════ -->
+<section class="sec" id="contents">
+<div class="sec-label reveal">CONTENTS</div>
+<h2 class="sec-title reveal">캠프 소식</h2>
+<p class="sec-desc reveal">이미지를 누르면 게시물로 이동합니다</p>
+
+<div style="position:relative">
+<div class="tap-hint"><svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>탭</div>
+</div>
+<div class="thumb-grid">
+<a href="https://blog.naver.com/inaive2003/224230507224" class="thumb-item reveal d1" target="_blank" rel="noopener"><img src="images/content-1.jpg" alt="" loading="lazy"></a>
+<a href="https://www.facebook.com/inaive2003/posts/pfbid02wkb2wvd7ubKSbrt8qJpj7JvdgbeDLHsCLdFMvubDqpce95WghkYGRaTqWP57Gv9El" class="thumb-item reveal d2" target="_blank" rel="noopener"><img src="images/content-2.jpg" alt="" loading="lazy"></a>
+<a href="https://www.facebook.com/inaive2003/posts/pfbid024FoRVdf3c4B91xkDeWf7ADBrzbAkpQHxfdrbw2AdrobMx8WMXup2CnSQMEeLMNdkl" class="thumb-item reveal d3" target="_blank" rel="noopener"><img src="images/content-3.jpg" alt="" loading="lazy"></a>
+<a href="https://blog.naver.com/inaive2003/224234686893" class="thumb-item reveal d4" target="_blank" rel="noopener"><img src="images/content-4.jpg" alt="" loading="lazy"></a>
+</div>
+</section>
+
+<!-- ═══════════ YOUTUBE ═══════════ -->
+<section class="sec" id="youtube">
+<div class="sec-label reveal">VIDEO</div>
+<h2 class="sec-title reveal">영상으로 만나는 김진규</h2>
+
+<a href="https://www.youtube.com/watch?v=-w-fixHI-Bg" class="yt-long reveal" target="_blank" rel="noopener" style="display:block;text-decoration:none">
+<div class="yt-label">FULL VIDEO</div>
+<div class="yt-embed">
+<img src="https://img.youtube.com/vi/-w-fixHI-Bg/hqdefault.jpg" alt="김진규 영상" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" loading="lazy">
+<div class="yt-embed-ph" style="background:rgba(0,0,0,.3)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+</div>
+</a>
+
+<div class="yt-label reveal">SHORTS</div>
+<div class="yt-shorts-row reveal" id="shortsTrack">
+<a href="https://www.youtube.com/shorts/PTQFZ7Gerh0" class="yt-short" target="_blank" rel="noopener">
+<img src="https://img.youtube.com/vi/PTQFZ7Gerh0/maxresdefault.jpg" alt="Shorts 1" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+<div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+</a>
+<a href="https://www.youtube.com/shorts/2XACX7f0wW0" class="yt-short" target="_blank" rel="noopener">
+<img src="https://img.youtube.com/vi/2XACX7f0wW0/maxresdefault.jpg" alt="Shorts 2" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+<div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+</a>
+<a href="https://www.youtube.com/shorts/XHeBS71fcdU" class="yt-short" target="_blank" rel="noopener">
+<img src="https://img.youtube.com/vi/XHeBS71fcdU/maxresdefault.jpg" alt="Shorts 3" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+<div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+</a>
+</div>
+</section>
+
+<!-- ═══════════ CAMPAIGN ═══════════ -->
+<section class="sec" id="campaign" style="border-bottom:none">
+<div class="sec-label reveal">JOIN US</div>
+<h2 class="sec-title reveal">함께 만드는 검단</h2>
+<p class="sec-desc reveal">여러분의 참여가 검단을 바꿉니다</p>
+
+<div style="position:relative">
+<div class="tap-hint"><svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>탭</div>
+</div>
+<div class="camp-grid reveal">
+<a href="https://naver.me/5t7sOAXQ" class="camp-card" target="_blank" rel="noopener">
+<div class="camp-icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></div>
+<h3>참여 설문조사</h3>
+<p>네이버 폼으로 검단 주민 의견을 남겨주세요</p>
+<span class="camp-arrow"><svg viewBox="0 0 16 16"><path d="M6 4l4 4-4 4"/></svg></span>
+</a>
+<a href="http://gumdan-kim.kr/relay/main.jsp" class="camp-card" target="_blank" rel="noopener">
+<div class="camp-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+<h3>응원 릴레이</h3>
+<p>김진규 후보에게 응원 메시지를 보내주세요</p>
+<span class="camp-arrow"><svg viewBox="0 0 16 16"><path d="M6 4l4 4-4 4"/></svg></span>
+</a>
+</div>
+</section>
+
+<!-- ═══════════ IMAGE POPUP ═══════════ -->
+<div class="popup-overlay" id="popupOverlay">
+<div class="popup-close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+<div class="popup-prev popup-nav"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></div>
+<div class="popup-next popup-nav"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+<img id="popupImg" src="" alt="공약 상세">
+<div class="popup-counter" id="popupCounter"></div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+<div class="footer-info">제작 책임자: [성명] · 선거사무소: [전화번호]</div>
+<div class="footer-copy">더불어민주당 검단구청장 예비후보 김진규 선거사무소</div>
+</footer>
+
+</main>
+
+<script>
+(function(){
+'use strict';
+
+/* Image Fallback */
+document.querySelectorAll('[data-fallback]').forEach(function(img){
+  function h(){
+    var m=img.getAttribute('data-fallback');
+    if(m==='hide')img.style.display='none';
+    else if(m==='placeholder'){
+      var ph=document.createElement('div');
+      ph.className='hero-photo-ph';
+      ph.textContent='후보 사진';
+      img.parentElement.replaceChild(ph,img);
+    }
+  }
+  if(img.complete&&img.naturalWidth===0)h();
+  else img.addEventListener('error',h);
+});
+
+/* Scroll Reveal */
+var els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target)}
+    });
+  },{threshold:0,rootMargin:'0px 0px 60px 0px'});
+  els.forEach(function(el){obs.observe(el)});
+}else{els.forEach(function(el){el.classList.add('vis')})}
+setTimeout(function(){els.forEach(function(el){if(!el.classList.contains('vis'))el.classList.add('vis')})},2500);
+
+/* Carousel Dots */
+function setupDots(trackId,dotsId){
+  var t=document.getElementById(trackId),d=document.getElementById(dotsId);
+  if(!t||!d)return;
+  var c=t.children;if(!c.length)return;
+  for(var i=0;i<c.length;i++){var dot=document.createElement('div');dot.className='dot'+(i===0?' on':'');d.appendChild(dot)}
+  var dots=d.querySelectorAll('.dot'),timer;
+  t.addEventListener('scroll',function(){
+    clearTimeout(timer);
+    timer=setTimeout(function(){
+      var w=c[0].offsetWidth;
+      var idx=Math.round(t.scrollLeft/w);
+      idx=Math.max(0,Math.min(idx,c.length-1));
+      dots.forEach(function(dot,i){dot.classList.toggle('on',i===idx)});
+    },60);
+  });
+}
+setupDots('probTrack','probDots');
+setupDots('solTrack','solDots');
+
+/* Share */
+var shareBtn=document.getElementById('shareBtn');
+if(shareBtn){
+  shareBtn.addEventListener('click',function(){
+    if(navigator.share){
+      navigator.share({title:'김진규 | 검단구청장 예비후보',text:'명품 자족도시 검단, 첫 단추는 김진규입니다!',url:location.href});
+    }else{
+      navigator.clipboard.writeText(location.href).then(function(){
+        shareBtn.style.background='var(--blue)';
+        setTimeout(function(){shareBtn.style.background=''},1500);
+      });
+    }
+  });
+}
+
+/* Empty link handler */
+document.querySelectorAll('[data-link]').forEach(function(el){
+  var href=el.getAttribute('href');
+  if(!href||href==='#')el.setAttribute('data-empty','');
+});
+
+/* Image Popup */
+var popupCards=document.querySelectorAll('[data-popup]');
+var allImages=['images/홍보물1.jpg','images/홍보물2.jpg','images/홍보물3.jpg','images/홍보물4.jpg','images/홍보물5.jpg','images/홍보물6.jpg'];
+var overlay=document.getElementById('popupOverlay');
+var popImg=document.getElementById('popupImg');
+var popCounter=document.getElementById('popupCounter');
+var curIdx=0;
+
+function openPopup(idx){
+  curIdx=idx;
+  popImg.src=allImages[curIdx];
+  popCounter.textContent=(curIdx+1)+' / '+allImages.length;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePopup(){
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+popupCards.forEach(function(card,i){
+  card.addEventListener('click',function(e){e.preventDefault();openPopup(i)});
+});
+overlay.addEventListener('click',function(e){
+  if(e.target===overlay||e.target.closest('.popup-close'))closePopup();
+});
+overlay.querySelector('.popup-prev').addEventListener('click',function(e){
+  e.stopPropagation();
+  curIdx=(curIdx-1+allImages.length)%allImages.length;
+  popImg.src=allImages[curIdx];
+  popCounter.textContent=(curIdx+1)+' / '+allImages.length;
+});
+overlay.querySelector('.popup-next').addEventListener('click',function(e){
+  e.stopPropagation();
+  curIdx=(curIdx+1)%allImages.length;
+  popImg.src=allImages[curIdx];
+  popCounter.textContent=(curIdx+1)+' / '+allImages.length;
+});
+/* News Marquee Auto Scroll */
+var newsTrack=document.getElementById('newsTrack');
+if(newsTrack){
+  var newsOrig=Array.from(newsTrack.children);
+  newsOrig.forEach(function(c){newsTrack.appendChild(c.cloneNode(true))});
+  var newsPaused=false;
+  function newsScroll(){
+    if(!newsPaused){
+      newsTrack.scrollLeft+=0.4;
+      if(newsTrack.scrollLeft>=newsTrack.scrollWidth/2)newsTrack.scrollLeft=0;
+    }
+    requestAnimationFrame(newsScroll);
+  }
+  requestAnimationFrame(newsScroll);
+  newsTrack.addEventListener('touchstart',function(){newsPaused=true},{passive:true});
+  newsTrack.addEventListener('touchend',function(){setTimeout(function(){newsPaused=false},2000)},{passive:true});
+  newsTrack.addEventListener('mouseenter',function(){newsPaused=true});
+  newsTrack.addEventListener('mouseleave',function(){setTimeout(function(){newsPaused=false},1000)});
+}
+
+/* Shorts Marquee Auto Scroll */
+var shortsTrack=document.getElementById('shortsTrack');
+if(shortsTrack){
+  var shortsOrig=Array.from(shortsTrack.children);
+  shortsOrig.forEach(function(c){shortsTrack.appendChild(c.cloneNode(true))});
+  var shortsPaused=false;
+  function shortsScroll(){
+    if(!shortsPaused){
+      shortsTrack.scrollLeft+=0.4;
+      if(shortsTrack.scrollLeft>=shortsTrack.scrollWidth/2)shortsTrack.scrollLeft=0;
+    }
+    requestAnimationFrame(shortsScroll);
+  }
+  requestAnimationFrame(shortsScroll);
+  shortsTrack.addEventListener('touchstart',function(){shortsPaused=true},{passive:true});
+  shortsTrack.addEventListener('touchend',function(){setTimeout(function(){shortsPaused=false},2000)},{passive:true});
+  shortsTrack.addEventListener('mouseenter',function(){shortsPaused=true});
+  shortsTrack.addEventListener('mouseleave',function(){setTimeout(function(){shortsPaused=false},1000)});
+}
+
+/* Solution popup 연결 */
+document.querySelectorAll('.sol-card[data-popup]').forEach(function(card,i){
+  card.addEventListener('click',function(e){e.preventDefault();openPopup(i)});
+});
+
+document.addEventListener('keydown',function(e){
+  if(!overlay.classList.contains('open'))return;
+  if(e.key==='Escape')closePopup();
+  if(e.key==='ArrowLeft'){curIdx=(curIdx-1+allImages.length)%allImages.length;popImg.src=allImages[curIdx];popCounter.textContent=(curIdx+1)+' / '+allImages.length}
+  if(e.key==='ArrowRight'){curIdx=(curIdx+1)%allImages.length;popImg.src=allImages[curIdx];popCounter.textContent=(curIdx+1)+' / '+allImages.length}
+});
+
+})();
+</script>
+</body>
+</html>
