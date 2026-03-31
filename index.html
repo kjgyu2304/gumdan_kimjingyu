@@ -55,7 +55,7 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 /*══════════════════════════════════════════════
   HERO — 풀블리드 사진 + 슬로건 바
 ══════════════════════════════════════════════*/
-.hero{margin-top:49px;padding-top:16px}
+.hero{margin-top:49px}
 /* DESIGNER: images/hero-photo.jpg — 후보 클로즈업/반신 사진. 가로로 넓게, 세피아 또는 흑백 톤 권장 */
 .hero-photo{width:100%;aspect-ratio:4/5;background:var(--gray-200);overflow:hidden;position:relative}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:saturate(.3) contrast(1.05)}
@@ -258,7 +258,7 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 .camp-card:last-child{border-bottom:none}
 }
 @media(min-width:641px){
-.hero-photo{aspect-ratio:16/8}
+.hero-photo{aspect-ratio:5/4}
 .prob-card,.sol-card{flex:0 0 55%}
 .news-card{flex:0 0 55%}
 .thumb-grid{grid-template-columns:repeat(3,1fr)}
@@ -275,7 +275,7 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 <div class="nav-left">
 <img src="images/party-logo.png" alt="더불어민주당" class="nav-logo">
 <img src="images/num1.png" alt="기호1번" class="nav-num">
-<span class="nav-name">김진규</span>
+<span class="nav-name">김진규 검단구청장 예비후보</span>
 </div>
 <div class="nav-share" id="shareBtn" role="button" aria-label="공유하기">
 <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
@@ -294,28 +294,6 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 <h1>명품 자족도시 검단,<br>첫 단추는 김진규</h1>
 </div>
 </header>
-
-<!-- ═══════════ SNS GRID ═══════════ -->
-<div class="sns-grid">
-<a href="https://www.instagram.com/inaive2003/" class="sns-cell stroke-icon" target="_blank" rel="noopener" aria-label="Instagram">
-<svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg>
-</a>
-<a href="https://www.youtube.com/@%EA%B2%80%EB%8B%A81000%EB%85%84" class="sns-cell" target="_blank" rel="noopener" aria-label="YouTube">
-<svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" fill="white"/></svg>
-</a>
-<a href="https://www.facebook.com/inaive2003/" class="sns-cell" target="_blank" rel="noopener" aria-label="Facebook">
-<svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-</a>
-<a href="https://www.threads.com/@inaive2003" class="sns-cell" target="_blank" rel="noopener" aria-label="Threads">
-<svg viewBox="0 0 24 24"><path d="M12.186 24h-.007C5.965 24 2.2 19.83 2.2 14.63v-.058c.034-5.478 3.975-9.964 9.467-10.478.263-.025.527-.04.79-.045C14.07 4.013 15.61 4.4 16.89 5.2c1.178.74 2.098 1.835 2.666 3.168l-2.12.896c-.384-.9-1.005-1.636-1.796-2.13-.862-.537-1.89-.795-2.975-.746-3.59.17-5.6 2.99-5.63 6.24-.03 3.426 2.2 6.353 5.63 6.353 2.19 0 3.7-.93 4.53-2.79.46-1.02.64-2.2.54-3.51-.47.24-1 .43-1.56.56-1.7.39-3.55.2-4.63-.99-.77-.85-1.12-2-.99-3.24.2-1.93 1.68-3.47 3.6-3.73 1.04-.14 2.08.1 2.93.69.62.43 1.1 1.02 1.4 1.72l.02-.14c.07-.5.1-1.01.1-1.53 0-.46-.03-.91-.1-1.35l2.07-.35c.08.52.13 1.06.13 1.62 0 .72-.05 1.42-.16 2.1-.04.22-.08.43-.13.64.02.37.02.75 0 1.13-.2 3.82-1.88 6.47-4.67 7.66-1.3.55-2.78.79-4.26.69z"/></svg>
-</a>
-<a href="https://x.com/Inavie2003" class="sns-cell" target="_blank" rel="noopener" aria-label="X">
-<svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-</a>
-<a href="https://blog.naver.com/inaive2003" class="sns-cell" target="_blank" rel="noopener" aria-label="네이버블로그">
-<svg viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 2H2v20h5.726V11.156L16.624 22H22V2h-5.727z"/></svg>
-</a>
-</div>
 
 <!-- ═══════════ SUB HERO — 가걸어온 길 ═══════════ -->
 <section class="sec" id="about">
@@ -468,8 +446,18 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 </div>
 
 <!-- ═══════════ FOOTER ═══════════ -->
+<!-- ═══════════ SNS GRID ═══════════ -->
+<div class="sns-grid">
+<a href="https://www.instagram.com/inaive2003/" class="sns-cell stroke-icon" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></a>
+<a href="https://www.youtube.com/@%EA%B2%80%EB%8B%A81000%EB%85%84" class="sns-cell" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z" fill="white"/></svg></a>
+<a href="https://www.facebook.com/inaive2003/" class="sns-cell" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+<a href="https://www.threads.com/@inaive2003" class="sns-cell" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24"><path d="M12.186 24h-.007C5.965 24 2.2 19.83 2.2 14.63v-.058c.034-5.478 3.975-9.964 9.467-10.478.263-.025.527-.04.79-.045C14.07 4.013 15.61 4.4 16.89 5.2c1.178.74 2.098 1.835 2.666 3.168l-2.12.896c-.384-.9-1.005-1.636-1.796-2.13-.862-.537-1.89-.795-2.975-.746-3.59.17-5.6 2.99-5.63 6.24-.03 3.426 2.2 6.353 5.63 6.353 2.19 0 3.7-.93 4.53-2.79.46-1.02.64-2.2.54-3.51-.47.24-1 .43-1.56.56-1.7.39-3.55.2-4.63-.99-.77-.85-1.12-2-.99-3.24.2-1.93 1.68-3.47 3.6-3.73 1.04-.14 2.08.1 2.93.69.62.43 1.1 1.02 1.4 1.72l.02-.14c.07-.5.1-1.01.1-1.53 0-.46-.03-.91-.1-1.35l2.07-.35c.08.52.13 1.06.13 1.62 0 .72-.05 1.42-.16 2.1-.04.22-.08.43-.13.64.02.37.02.75 0 1.13-.2 3.82-1.88 6.47-4.67 7.66-1.3.55-2.78.79-4.26.69z"/></svg></a>
+<a href="https://x.com/Inavie2003" class="sns-cell" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+<a href="https://blog.naver.com/inaive2003" class="sns-cell" target="_blank" rel="noopener" aria-label="네이버블로그"><svg viewBox="0 0 24 24"><path d="M16.273 12.845L7.376 2H2v20h5.726V11.156L16.624 22H22V2h-5.727z"/></svg></a>
+</div>
+
 <footer class="footer">
-<div class="footer-info">제작 책임자: [성명] · 선거사무소: [전화번호]</div>
+
 <div class="footer-copy">더불어민주당 검단구청장 예비후보 김진규 선거사무소</div>
 </footer>
 
