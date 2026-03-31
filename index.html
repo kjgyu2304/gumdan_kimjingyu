@@ -39,6 +39,8 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 --blue:#004EA2;
 --ease:cubic-bezier(.22,1,.36,1);
 }
+body{animation:pageIn 1s ease forwards}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
 
 /*══════════════════════════════════════════════
   NAV
@@ -129,17 +131,11 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 /*══════════════════════════════════════════════
   SOLUTION — 좌→우 슬라이드
 ══════════════════════════════════════════════*/
-.sol-track{display:flex;flex-direction:column;gap:0;border:1px solid var(--gray-200)}
-.sol-card{padding:0;margin-bottom:0;position:relative;cursor:pointer;flex-shrink:0;overflow:hidden;background:var(--white);border-bottom:1px solid var(--gray-200);transition:background .25s var(--ease)}
-.sol-card:active{background:var(--gray-50)}
-/* 워터마크 넘버 */
-.sol-card::after{content:attr(data-num);position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:clamp(72px,20vw,100px);font-weight:900;color:var(--gray-100);line-height:1;pointer-events:none;letter-spacing:-4px}
-.sol-inner{position:relative;z-index:1;padding:24px 20px;display:flex;gap:16px;align-items:flex-start}
-.sol-num-badge{width:36px;height:36px;border-radius:50%;background:var(--black);color:var(--white);font-size:14px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.sol-text{flex:1;min-width:0}
-.sol-cat{display:block;font-size:9px;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:4px}
-.sol-card h3{font-size:16px;font-weight:900;color:var(--black);letter-spacing:-.3px;margin-bottom:3px;line-height:1.3}
-.sol-card p,.sol-text p{font-size:12px;color:var(--gray-500);line-height:1.5}
+.sol-img-track{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border:1px solid var(--gray-200)}
+.sol-img-track::-webkit-scrollbar{display:none}
+.sol-img-card{flex:0 0 75%;border-right:1px solid var(--gray-200);cursor:pointer;overflow:hidden;transition:opacity .2s}
+.sol-img-card:active{opacity:.85}
+.sol-img-card img{width:100%;height:auto;display:block}
 
 /*══════════════════════════════════════════════
   CONTENTS — 썸네일 그리드
@@ -339,33 +335,16 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 <p class="sec-desc reveal">문제를 아는 사람이 답을 만듭니다.</p>
 
 <div style="position:relative">
-<div class="tap-hint">
-<svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>
-탭하여 상세 보기
+<div class="tap-hint"><svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>탭하여 확대</div>
 </div>
-</div>
-<div class="sol-track" id="solTrack">
-<div class="sol-card pledge-popup" data-num="01">
-<div class="sol-inner"><span class="sol-num-badge">1</span><div class="sol-text"><span class="sol-cat">경제</span><h3>AI 산업 활성화 자족도시</h3><p>창업 인큐베이터, AI밸리 조성, 소상공인 스마트 상생</p></div></div>
-</div>
-<div class="sol-card pledge-popup" data-num="02">
-<div class="sol-inner"><span class="sol-num-badge">2</span><div class="sol-text"><span class="sol-cat">교통</span><h3>사통팔달 교통 도시 검단</h3><p>GTX-D, 5호선·2호선·3호선 연장, 광역버스 확충</p></div></div>
-</div>
-<div class="sol-card pledge-popup" data-num="03">
-<div class="sol-inner"><span class="sol-num-badge">3</span><div class="sol-text"><span class="sol-cat">교육</span><h3>미래를 여는 교육도시</h3><p>과밀학급 해소, AI 특성화고, 평생학습 인프라</p></div></div>
-</div>
-<div class="sol-card pledge-popup" data-num="04">
-<div class="sol-inner"><span class="sol-num-badge">4</span><div class="sol-text"><span class="sol-cat">문화</span><h3>문화가 흐르는 도시</h3><p>문화예술회관 건립, 수변공간 활성화, 도서관 확충</p></div></div>
-</div>
-<div class="sol-card pledge-popup" data-num="05">
-<div class="sol-inner"><span class="sol-num-badge">5</span><div class="sol-text"><span class="sol-cat">미래에너지</span><h3>매립지에서 에너지 중심으로</h3><p>분산에너지 특구, 新에너지 산단, 에너지 기회소득</p></div></div>
-</div>
-<div class="sol-card pledge-popup" data-num="06">
-<div class="sol-inner"><span class="sol-num-badge">6</span><div class="sol-text"><span class="sol-cat">도시인프라</span><h3>살기 좋은 도시 기반</h3><p>다목적체육관, 공원·녹지, 스마트 도시 인프라</p></div></div>
-</div>
-<div class="sol-card pledge-popup" data-num="07">
-<div class="sol-inner"><span class="sol-num-badge">7</span><div class="sol-text"><span class="sol-cat">생활·환경</span><h3>365일 안심 돌봄</h3><p>24시 긴급돌봄, AI 스마트 돌봄, 학교 공기질 개선</p></div></div>
-</div>
+<div class="sol-img-track" id="solTrack">
+<div class="sol-img-card pledge-popup" data-idx="0"><img src="images/홍보물02.jpg" alt="주요공약 1" loading="lazy"></div>
+<div class="sol-img-card pledge-popup" data-idx="1"><img src="images/홍보물03.jpg" alt="주요공약 2" loading="lazy"></div>
+<div class="sol-img-card pledge-popup" data-idx="2"><img src="images/홍보물04.jpg" alt="주요공약 3" loading="lazy"></div>
+<div class="sol-img-card pledge-popup" data-idx="3"><img src="images/홍보물05.jpg" alt="주요공약 4" loading="lazy"></div>
+<div class="sol-img-card pledge-popup" data-idx="4"><img src="images/홍보물06.jpg" alt="주요공약 5" loading="lazy"></div>
+<div class="sol-img-card pledge-popup" data-idx="5"><img src="images/홍보물07.jpg" alt="주요공약 6" loading="lazy"></div>
+<div class="sol-img-card pledge-popup" data-idx="6"><img src="images/홍보물08.jpg" alt="주요공약 7" loading="lazy"></div>
 </div>
 </section>
 
@@ -542,7 +521,7 @@ document.querySelectorAll('[data-link]').forEach(function(el){
 });
 
 /* Image Popup */
-var allImages=['images/홍보물3.jpg','images/홍보물4.jpg','images/홍보물5.jpg','images/홍보물6.jpg'];
+var allImages=['images/홍보물02.jpg','images/홍보물03.jpg','images/홍보물04.jpg','images/홍보물05.jpg','images/홍보물06.jpg','images/홍보물07.jpg','images/홍보물08.jpg'];
 var overlay=document.getElementById('popupOverlay');
 var popImg=document.getElementById('popupImg');
 var popCounter=document.getElementById('popupCounter');
@@ -560,8 +539,26 @@ function closePopup(){
   document.body.style.overflow='';
 }
 document.querySelectorAll('.pledge-popup').forEach(function(card){
-  card.addEventListener('click',function(e){e.preventDefault();openPopup(0)});
+  var idx=parseInt(card.getAttribute('data-idx'))||0;
+  card.addEventListener('click',function(e){e.preventDefault();openPopup(idx)});
 });
+
+/* Solution 이미지 자동 스크롤 */
+var solTrack=document.getElementById('solTrack');
+if(solTrack&&solTrack.classList.contains('sol-img-track')){
+  var solOrig=Array.from(solTrack.children);
+  solOrig.forEach(function(c){var cl=c.cloneNode(true);cl.addEventListener('click',function(e){e.preventDefault();openPopup(parseInt(cl.getAttribute('data-idx'))||0)});solTrack.appendChild(cl)});
+  var solPaused=false;
+  function solScroll(){
+    if(!solPaused){solTrack.scrollLeft+=0.4;if(solTrack.scrollLeft>=solTrack.scrollWidth/2)solTrack.scrollLeft=0}
+    requestAnimationFrame(solScroll);
+  }
+  requestAnimationFrame(solScroll);
+  solTrack.addEventListener('touchstart',function(){solPaused=true},{passive:true});
+  solTrack.addEventListener('touchend',function(){setTimeout(function(){solPaused=false},2000)},{passive:true});
+  solTrack.addEventListener('mouseenter',function(){solPaused=true});
+  solTrack.addEventListener('mouseleave',function(){setTimeout(function(){solPaused=false},1000)});
+}
 overlay.addEventListener('click',function(e){
   if(e.target===overlay||e.target.closest('.popup-close'))closePopup();
 });
