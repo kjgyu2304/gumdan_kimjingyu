@@ -62,7 +62,11 @@ body{animation:pageIn 1s ease forwards}
 .hero{margin-top:68px}
 /* DESIGNER: images/hero-photo.jpg — 후보 클로즈업/반신 사진. 가로로 넓게, 세피아 또는 흑백 톤 권장 */
 .hero-photo{width:100%;aspect-ratio:4/5;background:var(--gray-200);overflow:hidden;position:relative}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:saturate(.3) contrast(1.05)}
+.hero-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--gray-200) 25%,var(--gray-100) 50%,var(--gray-200) 75%);background-size:200% 100%;animation:shimmerLoad 1.5s infinite;z-index:1;transition:opacity .5s}
+.hero-photo.loaded::before{opacity:0;pointer-events:none}
+@keyframes shimmerLoad{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:saturate(.3) contrast(1.05);opacity:0;transition:opacity .6s ease}
+.hero-photo.loaded img{opacity:1}
 .hero-photo-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--gray-200),var(--gray-300));color:var(--gray-400);font-size:13px}
 
 .hero-slogan{background:var(--black);padding:28px 24px;color:var(--white)}
@@ -133,13 +137,21 @@ body{animation:pageIn 1s ease forwards}
 ══════════════════════════════════════════════*/
 .sol-img-track{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border:1px solid var(--gray-200)}
 .sol-img-track::-webkit-scrollbar{display:none}
-.sol-img-card{flex:0 0 75%;border-right:1px solid var(--gray-200);cursor:pointer;overflow:hidden;transition:opacity .2s}
+.sol-img-card{flex:0 0 75%;border-right:1px solid var(--gray-200);cursor:pointer;overflow:hidden;transition:opacity .2s;position:relative}
 .sol-img-card:active{opacity:.85}
-.sol-img-card img{width:100%;height:auto;display:block}
+.sol-img-card::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--gray-200) 25%,var(--gray-100) 50%,var(--gray-200) 75%);background-size:200% 100%;animation:shimmerLoad 1.5s infinite;z-index:1;transition:opacity .5s}
+.sol-img-card.loaded::before{opacity:0;pointer-events:none}
+.sol-img-card img{width:100%;height:auto;display:block;opacity:0;transition:opacity .5s ease}
+.sol-img-card.loaded img{opacity:1}
 
 /*══════════════════════════════════════════════
   CONTENTS — 썸네일 그리드
 ══════════════════════════════════════════════*/
+.thumb-cell{position:relative;aspect-ratio:1/1;overflow:hidden;border-right:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);background:var(--gray-100)}
+.thumb-cell:nth-child(2n){border-right:none}
+.thumb-cell:nth-last-child(-n+2){border-bottom:none}
+.thumb-cell a{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;pointer-events:none}
+.thumb-cell a.active{opacity:1;pointer-events:auto}
 .thumb-grid{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--gray-200)}
 .thumb-item{aspect-ratio:1/1;overflow:hidden;border-right:1px solid var(--gray-200);border-bottom:1px solid var(--gray-200);position:relative;background:var(--gray-100);transition:opacity .2s}
 .thumb-item:nth-child(2n){border-right:none}
@@ -320,6 +332,7 @@ body{animation:pageIn 1s ease forwards}
 <a href="https://www.joongboo.com/news/articleView.html?idxno=1022896" class="news-card" target="_blank" rel="noopener"><div class="news-thumb"><img src="images/news-thumb-1.png" alt="" loading="lazy"></div><h4>서구 검단지역 부족한 문화시설, 마전도서관 건립 꼭 이루고 싶어</h4><span class="news-source">중부일보</span></a>
 <a href="https://www.kmaeil.com/news/articleView.html?idxno=634431" class="news-card" target="_blank" rel="noopener"><div class="news-thumb"><img src="images/news-thumb-2.jpg" alt="" loading="lazy"></div><h4>검단구 청년 일자리 창출 포문 열다</h4><span class="news-source">경기매일</span></a>
 <a href="https://www.jonghapnews.com/news/articleView.html?idxno=479711" class="news-card" target="_blank" rel="noopener"><div class="news-thumb"><img src="images/news-thumb-3.jpg" alt="" loading="lazy"></div><h4>검단신도시 도시 경쟁력 강화 활성화 계획 발표</h4><span class="news-source">종합뉴스</span></a>
+<a href="https://www.focusincheon.com/news/articleView.html?idxno=8216" class="news-card" target="_blank" rel="noopener"><div class="news-thumb"><img src="images/news-thumb-4.jpg" alt="" loading="lazy"></div><h4>우미린 아파트 일대 교통 체증 현장 점검…실효적 대안 마련</h4><span class="news-source">포커스인천</span></a>
 </div>
 </section>
 
@@ -357,11 +370,24 @@ body{animation:pageIn 1s ease forwards}
 <div style="position:relative">
 <div class="tap-hint"><svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>탭</div>
 </div>
-<div class="thumb-grid">
-<a href="https://blog.naver.com/inaive2003/224230507224" class="thumb-item reveal d1" target="_blank" rel="noopener"><img src="images/content-1.jpg" alt="" loading="lazy"></a>
-<a href="https://www.facebook.com/inaive2003/posts/pfbid02wkb2wvd7ubKSbrt8qJpj7JvdgbeDLHsCLdFMvubDqpce95WghkYGRaTqWP57Gv9El" class="thumb-item reveal d2" target="_blank" rel="noopener"><img src="images/content-2.jpg" alt="" loading="lazy"></a>
-<a href="https://www.facebook.com/inaive2003/posts/pfbid024FoRVdf3c4B91xkDeWf7ADBrzbAkpQHxfdrbw2AdrobMx8WMXup2CnSQMEeLMNdkl" class="thumb-item reveal d3" target="_blank" rel="noopener"><img src="images/content-3.jpg" alt="" loading="lazy"></a>
-<a href="https://blog.naver.com/inaive2003/224234686893" class="thumb-item reveal d4" target="_blank" rel="noopener"><img src="images/content-4.jpg" alt="" loading="lazy"></a>
+<div class="thumb-grid" id="thumbGrid">
+<div class="thumb-cell" data-interval="3500">
+<a href="https://blog.naver.com/inaive2003/224230507224" class="thumb-item active" target="_blank" rel="noopener"><img src="images/content-1.jpg" alt="" loading="lazy"></a>
+<a href="https://blog.naver.com/inaive2003/224219483113" class="thumb-item" target="_blank" rel="noopener"><img src="images/content-5.jpg" alt="" loading="lazy"></a>
+<a href="https://blog.naver.com/inaive2003/224236862506" class="thumb-item" target="_blank" rel="noopener"><img src="images/content-9.jpg" alt="" loading="lazy"></a>
+</div>
+<div class="thumb-cell" data-interval="4500">
+<a href="https://www.facebook.com/inaive2003/posts/pfbid02wkb2wvd7ubKSbrt8qJpj7JvdgbeDLHsCLdFMvubDqpce95WghkYGRaTqWP57Gv9El" class="thumb-item active" target="_blank" rel="noopener"><img src="images/content-2.jpg" alt="" loading="lazy"></a>
+<a href="https://blog.naver.com/inaive2003/224234638622" class="thumb-item" target="_blank" rel="noopener"><img src="images/content-6.jpg" alt="" loading="lazy"></a>
+</div>
+<div class="thumb-cell" data-interval="4500">
+<a href="https://www.facebook.com/inaive2003/posts/pfbid024FoRVdf3c4B91xkDeWf7ADBrzbAkpQHxfdrbw2AdrobMx8WMXup2CnSQMEeLMNdkl" class="thumb-item active" target="_blank" rel="noopener"><img src="images/content-3.jpg" alt="" loading="lazy"></a>
+<a href="https://blog.naver.com/inaive2003/224234649181" class="thumb-item" target="_blank" rel="noopener"><img src="images/content-7.jpg" alt="" loading="lazy"></a>
+</div>
+<div class="thumb-cell" data-interval="3500">
+<a href="https://blog.naver.com/inaive2003/224234686893" class="thumb-item active" target="_blank" rel="noopener"><img src="images/content-4.jpg" alt="" loading="lazy"></a>
+<a href="https://blog.naver.com/inaive2003/224180301867" class="thumb-item" target="_blank" rel="noopener"><img src="images/content-8.jpg" alt="" loading="lazy"></a>
+</div>
 </div>
 </section>
 
@@ -390,6 +416,18 @@ body{animation:pageIn 1s ease forwards}
 </a>
 <a href="https://www.youtube.com/shorts/XHeBS71fcdU" class="yt-short" target="_blank" rel="noopener">
 <img src="https://img.youtube.com/vi/XHeBS71fcdU/maxresdefault.jpg" alt="Shorts 3" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+<div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+</a>
+<a href="https://www.youtube.com/shorts/MUkF6pnGaRo" class="yt-short" target="_blank" rel="noopener">
+<img src="https://img.youtube.com/vi/MUkF6pnGaRo/maxresdefault.jpg" alt="Shorts 4" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+<div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+</a>
+<a href="https://www.youtube.com/shorts/DhbXD9b8uG4" class="yt-short" target="_blank" rel="noopener">
+<img src="https://img.youtube.com/vi/DhbXD9b8uG4/maxresdefault.jpg" alt="Shorts 5" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+<div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+</a>
+<a href="https://www.youtube.com/shorts/PTQFZ7Gerh0" class="yt-short" target="_blank" rel="noopener">
+<img src="https://img.youtube.com/vi/PTQFZ7Gerh0/hqdefault.jpg" alt="Shorts 6" style="width:100%;height:100%;object-fit:cover" loading="lazy">
 <div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
 </a>
 </div>
@@ -450,6 +488,37 @@ body{animation:pageIn 1s ease forwards}
 <script>
 (function(){
 'use strict';
+
+/* Hero Shimmer → Loaded */
+var heroPhoto=document.querySelector('.hero-photo');
+var heroImg=heroPhoto&&heroPhoto.querySelector('img');
+if(heroImg){
+  function heroLoaded(){heroPhoto.classList.add('loaded')}
+  if(heroImg.complete&&heroImg.naturalWidth>0){heroLoaded()}
+  else{heroImg.addEventListener('load',heroLoaded)}
+}
+
+/* Thumb Cell Individual Fade — 1·4 같은 타이밍, 2·3 같은 타이밍 */
+document.querySelectorAll('.thumb-cell').forEach(function(cell){
+  var items=cell.querySelectorAll('.thumb-item');
+  if(items.length<2)return;
+  var idx=0;
+  var interval=parseInt(cell.getAttribute('data-interval'))||4000;
+  setInterval(function(){
+    items[idx].classList.remove('active');
+    idx=(idx+1)%items.length;
+    items[idx].classList.add('active');
+  },interval);
+});
+
+/* Sol Image Shimmer → Loaded */
+document.querySelectorAll('.sol-img-card').forEach(function(card){
+  var img=card.querySelector('img');
+  if(!img)return;
+  function done(){card.classList.add('loaded')}
+  if(img.complete&&img.naturalWidth>0){done()}
+  else{img.addEventListener('load',done)}
+});
 
 /* Image Fallback */
 document.querySelectorAll('[data-fallback]').forEach(function(img){
