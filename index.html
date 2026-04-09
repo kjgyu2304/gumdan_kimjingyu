@@ -146,14 +146,20 @@ body{animation:pageIn 1s ease forwards}
 /*══════════════════════════════════════════════
   SOLUTION — 좌→우 슬라이드
 ══════════════════════════════════════════════*/
-.sol-img-track{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border:1px solid var(--gray-200)}
+.pledge-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--blue);color:#fff;font-size:13px;font-weight:700;letter-spacing:-.2px;padding:13px 16px;border-radius:10px 10px 0 0;margin-bottom:0;animation:pledgePulse 2.4s ease-in-out infinite}
+.pledge-cta-icon{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@keyframes pledgePulse{0%,100%{box-shadow:0 0 0 0 rgba(0,78,162,.4)}50%{box-shadow:0 0 0 6px rgba(0,78,162,0)}}
+
+.sol-img-track{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border:1px solid var(--gray-200);border-radius:0 0 10px 10px}
 .sol-img-track::-webkit-scrollbar{display:none}
-.sol-img-card{flex:0 0 75%;border-right:1px solid var(--gray-200);cursor:pointer;overflow:hidden;transition:opacity .2s;position:relative}
-.sol-img-card:active{opacity:.85}
+.sol-img-card{flex:0 0 78%;border-right:1px solid var(--gray-200);cursor:pointer;overflow:hidden;transition:transform .2s,opacity .2s;position:relative}
+.sol-img-card:active{opacity:.9;transform:scale(.98)}
 .sol-img-card::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--gray-200) 25%,var(--gray-100) 50%,var(--gray-200) 75%);background-size:200% 100%;animation:shimmerLoad 1.5s infinite;z-index:1;transition:opacity .5s}
 .sol-img-card.loaded::before{opacity:0;pointer-events:none}
 .sol-img-card img{width:100%;height:auto;display:block;opacity:0;transition:opacity .5s ease}
 .sol-img-card.loaded img{opacity:1}
+.pledge-zoom{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;z-index:2;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.pledge-zoom svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 
 /*══════════════════════════════════════════════
   CONTENTS — 썸네일 그리드
@@ -342,36 +348,31 @@ body{animation:pageIn 1s ease forwards}
 
 </section>
 
-<!-- ═══════════ ACHIEVEMENT ═══════════ -->
-<section class="sec" id="achievement" style="padding:0;border-bottom:1px solid var(--gray-200)">
-<img src="images/홍보물2.jpg" alt="성과가 남다른 검증된 행정전문가 김진규" style="width:100%;display:block" loading="lazy">
-</section>
-
 <!-- ═══════════ SOLUTION ═══════════ -->
 <section class="sec" id="solution">
 <div class="sec-label reveal" style="color:var(--blue)">SOLUTION</div>
 <h2 class="sec-title reveal">김진규의 약속,<br>주요 공약</h2>
 <p class="sec-desc reveal">문제를 아는 사람이 답을 만듭니다.</p>
 
-<!-- 공약 이미지 슬라이드 (임시 숨김)
-<div style="position:relative">
-<div class="tap-hint"><svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-4 0v5"/><path d="M14 10V4a2 2 0 00-4 0v7"/><path d="M10 10.5V8a2 2 0 00-4 0v8c0 4.42 3.58 8 8 8h.5a7.5 7.5 0 007.5-7.5V11a2 2 0 00-4 0"/></svg>탭하여 확대</div>
-</div>
-<div class="sol-img-track" id="solTrack">
-<div class="sol-img-card pledge-popup" data-idx="0"><img src="images/홍보물02.jpg" alt="주요공약 1" loading="lazy"></div>
-<div class="sol-img-card pledge-popup" data-idx="1"><img src="images/홍보물03.jpg" alt="주요공약 2" loading="lazy"></div>
-<div class="sol-img-card pledge-popup" data-idx="2"><img src="images/홍보물04.jpg" alt="주요공약 3" loading="lazy"></div>
-<div class="sol-img-card pledge-popup" data-idx="3"><img src="images/홍보물05.jpg" alt="주요공약 4" loading="lazy"></div>
-<div class="sol-img-card pledge-popup" data-idx="4"><img src="images/홍보물06.jpg" alt="주요공약 5" loading="lazy"></div>
-<div class="sol-img-card pledge-popup" data-idx="5"><img src="images/홍보물07.jpg" alt="주요공약 6" loading="lazy"></div>
-<div class="sol-img-card pledge-popup" data-idx="6"><img src="images/홍보물08.jpg" alt="주요공약 7" loading="lazy"></div>
-</div>
--->
-
-<div class="yt-long reveal">
+<div class="yt-long reveal" style="margin-bottom:28px">
 <div class="yt-embed">
 <iframe src="https://www.youtube.com/embed/jlT2n_A7pww" title="김진규 주요공약 영상" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
 </div>
+</div>
+
+<div class="pledge-cta reveal">
+<svg class="pledge-cta-icon" viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg>
+<span>이미지를 탭하면 크게 볼 수 있어요</span>
+</div>
+<div class="sol-img-track reveal" id="solTrack">
+<div class="sol-img-card pledge-popup" data-idx="0"><img src="images/홍보물01.jpg" alt="주요공약 1" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="1"><img src="images/홍보물02.jpg" alt="주요공약 2" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="2"><img src="images/홍보물03.jpg" alt="주요공약 3" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="3"><img src="images/홍보물04.jpg" alt="주요공약 4" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="4"><img src="images/홍보물05.jpg" alt="주요공약 5" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="5"><img src="images/홍보물06.jpg" alt="주요공약 6" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="6"><img src="images/홍보물07.jpg" alt="주요공약 7" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="7"><img src="images/홍보물08.jpg" alt="주요공약 8" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
 </div>
 </section>
 
@@ -647,7 +648,7 @@ document.querySelectorAll('[data-link]').forEach(function(el){
 });
 
 /* Image Popup */
-var allImages=['images/홍보물02.jpg','images/홍보물03.jpg','images/홍보물04.jpg','images/홍보물05.jpg','images/홍보물06.jpg','images/홍보물07.jpg','images/홍보물08.jpg'];
+var allImages=['images/홍보물01.jpg','images/홍보물02.jpg','images/홍보물03.jpg','images/홍보물04.jpg','images/홍보물05.jpg','images/홍보물06.jpg','images/홍보물07.jpg','images/홍보물08.jpg'];
 var overlay=document.getElementById('popupOverlay');
 var popImg=document.getElementById('popupImg');
 var popCounter=document.getElementById('popupCounter');
