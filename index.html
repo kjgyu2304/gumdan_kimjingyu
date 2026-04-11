@@ -355,6 +355,24 @@ body{animation:pageIn 1s ease forwards}
 
 </section>
 
+<!-- ═══════════ TRACK RECORD ═══════════ -->
+<section class="sec" id="record">
+<div class="sec-label reveal">TRACK RECORD</div>
+<h2 class="sec-title reveal">이루어낸 약속</h2>
+<p class="sec-desc reveal">말이 아닌 실행으로 증명했습니다.</p>
+
+<div class="pledge-cta reveal">
+<svg class="pledge-cta-icon" viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg>
+<span>이미지를 탭하면 크게 볼 수 있어요</span>
+</div>
+<div class="sol-img-track reveal" id="recordTrack">
+<div class="sol-img-card pledge-popup" data-idx="8"><img src="images/성과01.jpg" alt="이루어낸 약속 1 — 학생 교복 무상지원" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="9"><img src="images/성과02.jpg" alt="이루어낸 약속 2 — 검단 노인복지관 건립" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="10"><img src="images/성과03.jpg" alt="이루어낸 약속 3 — 인천광역시 마전도서관 건립" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+<div class="sol-img-card pledge-popup" data-idx="11"><img src="images/성과04.jpg" alt="이루어낸 약속 4 — 검단복지회관 다목적체육관 개관" loading="lazy"><span class="pledge-zoom"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M14 10l7-7M9 21H3v-6M10 14l-7 7"/></svg></span></div>
+</div>
+</section>
+
 <!-- ═══════════ SOLUTION ═══════════ -->
 <section class="sec" id="solution">
 <div class="sec-label reveal" style="color:var(--blue)">SOLUTION</div>
@@ -658,8 +676,8 @@ document.querySelectorAll('[data-link]').forEach(function(el){
 });
 
 /* Image Popup */
-var allImages=['images/홍보물01.jpg','images/홍보물02.jpg','images/홍보물03.jpg','images/홍보물08.jpg','images/홍보물04.jpg','images/홍보물05.jpg','images/홍보물06.jpg','images/홍보물07.jpg'];
-var imgSets={about:[0,1,2,3],sol:[4,5,6,7]};
+var allImages=['images/홍보물01.jpg','images/홍보물02.jpg','images/홍보물03.jpg','images/홍보물08.jpg','images/홍보물04.jpg','images/홍보물05.jpg','images/홍보물06.jpg','images/홍보물07.jpg','images/성과01.jpg','images/성과02.jpg','images/성과03.jpg','images/성과04.jpg'];
+var imgSets={about:[0,1,2,3],sol:[4,5,6,7],record:[8,9,10,11]};
 var curSet='about';
 var overlay=document.getElementById('popupOverlay');
 var popImg=document.getElementById('popupImg');
@@ -668,7 +686,9 @@ var curIdx=0;
 
 function openPopup(idx){
   curIdx=idx;
-  curSet=(imgSets.about.indexOf(idx)!==-1)?'about':'sol';
+  if(imgSets.about.indexOf(idx)!==-1)curSet='about';
+  else if(imgSets.record.indexOf(idx)!==-1)curSet='record';
+  else curSet='sol';
   var set=imgSets[curSet];
   var pos=set.indexOf(idx)+1;
   popImg.src=allImages[curIdx];
@@ -700,6 +720,23 @@ if(aboutTrack&&aboutTrack.classList.contains('sol-img-track')){
   aboutTrack.addEventListener('touchend',function(){setTimeout(function(){aboutPaused=false},2000)},{passive:true});
   aboutTrack.addEventListener('mouseenter',function(){aboutPaused=true});
   aboutTrack.addEventListener('mouseleave',function(){setTimeout(function(){aboutPaused=false},1000)});
+}
+
+/* Record 이미지 자동 스크롤 */
+var recordTrack=document.getElementById('recordTrack');
+if(recordTrack&&recordTrack.classList.contains('sol-img-track')){
+  var recordOrig=Array.from(recordTrack.children);
+  recordOrig.forEach(function(c){var cl=c.cloneNode(true);cl.addEventListener('click',function(e){e.preventDefault();openPopup(parseInt(cl.getAttribute('data-idx'))||0)});recordTrack.appendChild(cl)});
+  var recordPaused=false;
+  function recordScroll(){
+    if(!recordPaused){recordTrack.scrollLeft+=0.4;if(recordTrack.scrollLeft>=recordTrack.scrollWidth/2)recordTrack.scrollLeft=0}
+    requestAnimationFrame(recordScroll);
+  }
+  requestAnimationFrame(recordScroll);
+  recordTrack.addEventListener('touchstart',function(){recordPaused=true},{passive:true});
+  recordTrack.addEventListener('touchend',function(){setTimeout(function(){recordPaused=false},2000)},{passive:true});
+  recordTrack.addEventListener('mouseenter',function(){recordPaused=true});
+  recordTrack.addEventListener('mouseleave',function(){setTimeout(function(){recordPaused=false},1000)});
 }
 
 /* Solution 이미지 자동 스크롤 */
