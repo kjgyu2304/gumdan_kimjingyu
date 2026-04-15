@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+<meta name="theme-color" content="#004EA2">
+<title>내 지역 공약 | 김진규 검단구청장 예비후보</title>
+<meta name="description" content="검단구 7개 행정동의 맞춤공약을 한눈에. GPS 또는 직접 선택으로 우리 동네 공약을 확인하세요.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kjgyu2304.github.io/gumdan_kimjingyu/dong/">
+<meta property="og:title" content="내 지역 공약 | 김진규 검단구청장 예비후보">
+<meta property="og:description" content="검단구 7개 행정동 맞춤공약을 한눈에. GPS 또는 직접 선택으로 우리 동네 공약을 확인하세요.">
+<meta property="og:image" content="https://kjgyu2304.github.io/gumdan_kimjingyu/images/og-image2.jpg">
+<meta property="og:locale" content="ko_KR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@200;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+<div class="nav-left">
+<img src="../images/party-logo3.png" alt="더불어민주당" class="nav-logo">
+</div>
+<div class="nav-right">
+<img src="../images/nav-image.png" alt="검증된 행정전문가 1 김진규" class="nav-brand">
+<a href="../" class="nav-home">메인</a>
+</div>
+</nav>
+
+<main>
+
+<div class="hero-banner">
+<img src="../images/동별공약배너.JPG" alt="김진규 검단구청장 예비후보 — 주민과의 현장 소통">
+</div>
+
+<header class="hero">
+<div class="hero-label">CUSTOM PLEDGE</div>
+<h1 class="hero-title">우리 <strong>검단 동네</strong>를<br>위한 맞춤공약</h1>
+<p class="hero-desc"><b>검단구 7개 행정동</b> 각각의 숙원을 반영한<br>김진규의 구석구석 동별공약</p>
+</header>
+
+<section class="sec">
+<div class="sec-label">📍 GPS</div>
+<h2 class="sec-title">내 위치로 찾기</h2>
+<p class="sec-desc">브라우저 위치 권한을 허용하면 가장 가까운 동 페이지로 자동 이동합니다.</p>
+<div class="gps-box">
+<button id="gpsBtn" class="gps-btn" type="button">
+<svg viewBox="0 0 24 24"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/></svg>
+현재 위치로 동 찾기
+</button>
+<p class="gps-hint">위치는 페이지 이동 외의 목적으로 저장되지 않아요</p>
+<div id="gpsStatus" class="gps-status"></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="sec-label">SELECT</div>
+<h2 class="sec-title">또는 직접 선택하기</h2>
+<p class="sec-desc">공약이 공개된 동은 <b style="color:var(--blue)">파란 막대</b>로 표시됩니다.</p>
+<div class="dong-grid-wrap">
+<div class="dong-grid">
+<a href="geomdan.html" class="dong-btn ready">
+<div class="dong-num">01</div>
+<div class="dong-main">
+<div class="dong-name">검단동</div>
+<small class="dong-legal">금곡동 일대 포함</small>
+</div>
+<div class="dong-footer">
+<span class="dong-badge">공약 공개</span>
+<span class="dong-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</div>
+</a>
+<a href="bulrodaegok.html" class="dong-btn">
+<div class="dong-num">02</div>
+<div class="dong-main">
+<div class="dong-name">불로대곡동</div>
+<small class="dong-legal">불로동, 대곡동</small>
+</div>
+<div class="dong-footer">
+<span class="dong-badge">준비중</span>
+<span class="dong-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</div>
+</a>
+<a href="wondang.html" class="dong-btn">
+<div class="dong-num">03</div>
+<div class="dong-main">
+<div class="dong-name">원당동</div>
+</div>
+<div class="dong-footer">
+<span class="dong-badge">준비중</span>
+<span class="dong-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</div>
+</a>
+<a href="dangha.html" class="dong-btn ready">
+<div class="dong-num">04</div>
+<div class="dong-main">
+<div class="dong-name">당하동</div>
+<small class="dong-legal">백석동 일대 포함</small>
+</div>
+<div class="dong-footer">
+<span class="dong-badge">공약 공개</span>
+<span class="dong-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</div>
+</a>
+<a href="oryuwanggil.html" class="dong-btn ready">
+<div class="dong-num">05</div>
+<div class="dong-main">
+<div class="dong-name">오류왕길동</div>
+<small class="dong-legal">오류동, 왕길동</small>
+</div>
+<div class="dong-footer">
+<span class="dong-badge">공약 공개</span>
+<span class="dong-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</div>
+</a>
+<a href="maljeon.html" class="dong-btn ready">
+<div class="dong-num">06</div>
+<div class="dong-main">
+<div class="dong-name">마전동</div>
+</div>
+<div class="dong-footer">
+<span class="dong-badge">공약 공개</span>
+<span class="dong-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</div>
+</a>
+<a href="ara.html" class="dong-btn ready">
+<div class="dong-num">07</div>
+<div class="dong-main">
+<div class="dong-name">아라동</div>
+<small class="dong-legal">아라1·2동</small>
+</div>
+<div class="dong-footer">
+<span class="dong-badge">공약 공개 · 2편</span>
+<span class="dong-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="sec-label">FEEDBACK</div>
+<h2 class="sec-title">공약 보고 의견 남기기</h2>
+<p class="sec-desc">우리 동 공약 어떠셨나요? 추가하고 싶은 의견, 보완이 필요한 부분을 알려주세요. 모든 피드백은 김진규가 직접 읽어봅니다.</p>
+<a href="https://naver.me/5t7sOAXQ" class="feedback-cta" target="_blank" rel="noopener">
+<span class="feedback-cta-left">
+<span class="ic filled"><svg viewBox="0 0 16 16"><path d="M2.5 2h11c.3 0 .5.2.5.5v10c0 .3-.2.5-.5.5h-7L3 15.5V3c0-.3.2-.5.5-1zm1.7 4.8l3-2.3v1.4h3.3v1.8H7.2v1.4L4.2 6.8z" transform="rotate(180 8 8)"/><rect x="2" y="2" width="12" height="10" rx=".5"/></svg></span>
+<span>
+<b>네이버 폼으로 의견 남기기</b>
+<span class="sub">1분이면 끝나는 간단한 설문</span>
+</span>
+</span>
+<span class="arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
+</a>
+</section>
+
+</main>
+
+<footer class="site-footer">
+명품 자족도시 검단, 첫 단추는 김진규입니다!
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
