@@ -2,8 +2,8 @@
   // lat/lng은 geodong.json polygon centroid (fallback용). 실제 판정은 경계 기반.
   var DONGS = [
     { slug:'geomdan',     name:'검단동',      legal:'금곡동 일대 포함', lat:37.6116, lng:126.6565, ready:true  },
-    { slug:'bulrodaegok', name:'불로대곡동',   legal:'불로동, 대곡동',   lat:37.6188, lng:126.6739, ready:false },
-    { slug:'wondang',     name:'원당동',      legal:'',                 lat:37.5936, lng:126.6981, ready:false },
+    { slug:'bulrodaegok', name:'불로대곡동',   legal:'불로동, 대곡동',   lat:37.6188, lng:126.6739, ready:true  },
+    { slug:'wondang',     name:'원당동',      legal:'',                 lat:37.5936, lng:126.6981, ready:true  },
     { slug:'dangha',      name:'당하동',      legal:'백석동 일대 포함', lat:37.5835, lng:126.6766, ready:true  },
     { slug:'oryuwanggil', name:'오류왕길동',   legal:'오류동, 왕길동',   lat:37.5907, lng:126.6373, ready:true  },
     { slug:'maljeon',     name:'마전동',      legal:'',                 lat:37.5968, lng:126.6765, ready:true  },
