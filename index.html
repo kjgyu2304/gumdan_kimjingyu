@@ -910,7 +910,7 @@ if(shortsTrack){
       return '<div class="thumb-cell" data-interval="'+intervals[ci]+'">'+
         items.map(function(p,j){
           var active=(j===0)?' active':'';
-          return '<a href="'+p.link+'" class="thumb-item'+active+'" target="_blank" rel="noopener"><img src="'+p.thumb+'" alt="" loading="lazy"></a>';
+          return '<a href="'+p.link+'" class="thumb-item'+active+'" target="_blank" rel="noopener"><img src="'+p.thumb+'" alt="" loading="lazy" referrerpolicy="no-referrer"></a>';
         }).join('')+
       '</div>';
     }).join('');
