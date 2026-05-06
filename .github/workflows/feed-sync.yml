@@ -1,0 +1,55 @@
+name: feed-sync
+
+# YouTube 채널·네이버 블로그 RSS를 주기적으로 가져와 data/*.json 갱신.
+# 변경 있으면 자동 커밋·푸시. (gh-pages는 main push 시 자동 배포)
+#
+# - 공개 저장소이므로 Actions 분 무료 (2026-05 기준)
+# - 동일 스크립트를 로컬에서도 그대로 실행 가능 (node scripts/sync-feeds.js)
+#
+# 수동 실행: Actions 탭 → feed-sync → Run workflow
+# 주기:     UTC 기준 3시간마다 (KST 03·06·09·12·15·18·21·24)
+
+on:
+  schedule:
+    - cron: '15 */3 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/sync-feeds.js'
+      - '.github/workflows/feed-sync.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feed-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run sync
+        run: node scripts/sync-feeds.js
+
+      - name: Commit & push if changed
+        run: |
+          if [ -n "$(git status --porcelain data/)" ]; then
+            git config user.name  'github-actions[bot]'
+            git config user.email 'github-actions[bot]@users.noreply.github.com'
+            git add data/
+            git commit -m "feed-sync: refresh youtube/blog data"
+            git push
+          else
+            echo "no changes"
+          fi

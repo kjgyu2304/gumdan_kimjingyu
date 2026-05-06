@@ -623,18 +623,24 @@ if(heroSlides.length>1){
   },3500);
 }
 
-/* Thumb Cell Individual Fade — 1·4 같은 타이밍, 2·3 같은 타이밍 */
-document.querySelectorAll('.thumb-cell').forEach(function(cell){
-  var items=cell.querySelectorAll('.thumb-item');
-  if(items.length<2)return;
-  var idx=0;
-  var interval=parseInt(cell.getAttribute('data-interval'))||4000;
-  setInterval(function(){
-    items[idx].classList.remove('active');
-    idx=(idx+1)%items.length;
-    items[idx].classList.add('active');
-  },interval);
-});
+/* Thumb Cell Individual Fade — 재실행 가능 (feed sync 후 재초기화용) */
+var thumbCellTimers=[];
+function setupThumbCells(){
+  thumbCellTimers.forEach(function(t){clearInterval(t)});
+  thumbCellTimers=[];
+  document.querySelectorAll('.thumb-cell').forEach(function(cell){
+    var items=cell.querySelectorAll('.thumb-item');
+    if(items.length<2)return;
+    var idx=0;
+    var interval=parseInt(cell.getAttribute('data-interval'))||4000;
+    thumbCellTimers.push(setInterval(function(){
+      items[idx].classList.remove('active');
+      idx=(idx+1)%items.length;
+      items[idx].classList.add('active');
+    },interval));
+  });
+}
+setupThumbCells();
 
 /* Sol Image Shimmer → Loaded */
 document.querySelectorAll('.sol-img-card').forEach(function(card){
@@ -848,11 +854,19 @@ if(fullTrack){
   fullTrack.addEventListener('mouseleave',function(){setTimeout(function(){fullPaused=false},1000)});
 }
 
-/* Shorts Marquee Auto Scroll */
+/* Shorts Marquee Auto Scroll — 클론 로직 분리하여 feed sync 후 재실행 가능 */
 var shortsTrack=document.getElementById('shortsTrack');
+function setupShortsClones(){
+  if(!shortsTrack)return;
+  Array.from(shortsTrack.querySelectorAll('[data-cloned]')).forEach(function(c){c.remove()});
+  Array.from(shortsTrack.children).forEach(function(c){
+    var cl=c.cloneNode(true);
+    cl.setAttribute('data-cloned','');
+    shortsTrack.appendChild(cl);
+  });
+}
 if(shortsTrack){
-  var shortsOrig=Array.from(shortsTrack.children);
-  shortsOrig.forEach(function(c){shortsTrack.appendChild(c.cloneNode(true))});
+  setupShortsClones();
   var shortsPaused=false;
   function shortsScroll(){
     if(!shortsPaused){
@@ -867,6 +881,42 @@ if(shortsTrack){
   shortsTrack.addEventListener('mouseenter',function(){shortsPaused=true});
   shortsTrack.addEventListener('mouseleave',function(){setTimeout(function(){shortsPaused=false},1000)});
 }
+
+/* Feed Sync — RSS 기반 자동 갱신 (쇼츠 + 네이버 블로그 콘텐츠) */
+(function feedSync(){
+  function escHtml(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+  function loadJSON(url){return fetch(url,{cache:'no-cache'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}
+
+  loadJSON('data/youtube.json').then(function(yt){
+    if(!yt||!yt.shorts||!yt.shorts.length||!shortsTrack)return;
+    shortsTrack.innerHTML=yt.shorts.slice(0,10).map(function(s){
+      return '<a href="'+s.link+'" class="yt-short" target="_blank" rel="noopener">'+
+        '<img src="'+s.thumbHi+'" onerror="this.onerror=null;this.src=\''+s.thumb+'\'" alt="'+escHtml(s.title)+'" style="width:100%;height:100%;object-fit:cover" loading="lazy">'+
+        '<div class="yt-short-ph" style="position:absolute;inset:0;background:rgba(0,0,0,.25)"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>'+
+      '</a>';
+    }).join('');
+    setupShortsClones();
+  });
+
+  loadJSON('data/blog.json').then(function(bg){
+    if(!bg||!bg.posts||bg.posts.length<4)return;
+    var grid=document.getElementById('thumbGrid');
+    if(!grid)return;
+    var posts=bg.posts.slice(0,12);
+    var cells=[[],[],[],[]];
+    var intervals=[3500,4500,4500,3500];
+    posts.forEach(function(p,i){cells[i%4].push(p)});
+    grid.innerHTML=cells.map(function(items,ci){
+      return '<div class="thumb-cell" data-interval="'+intervals[ci]+'">'+
+        items.map(function(p,j){
+          var active=(j===0)?' active':'';
+          return '<a href="'+p.link+'" class="thumb-item'+active+'" target="_blank" rel="noopener"><img src="'+p.thumb+'" alt="" loading="lazy"></a>';
+        }).join('')+
+      '</div>';
+    }).join('');
+    setupThumbCells();
+  });
+})();
 
 document.addEventListener('keydown',function(e){
   if(!overlay.classList.contains('open'))return;
