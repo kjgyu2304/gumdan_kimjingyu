@@ -111,13 +111,32 @@ async function syncYouTube() {
 // ─────────────────────────────── Naver Blog ───────────────────────────────
 
 function extractFirstImage(html) {
-  // description 안의 <img src="..."> 첫 번째
+  // description 안의 <img src="..."> 첫 번째 (og:image fetch 실패 시 fallback)
   const m = /<img[^>]*\bsrc="([^"]+)"/i.exec(html || '');
   if (!m) return '';
   let src = m[1];
-  // 네이버 썸네일은 type=s3 → 더 큰 사이즈로
   src = src.replace(/\?type=s\d+$/, '?type=w773');
   return src;
+}
+
+function extractOgImage(html) {
+  // <meta property="og:image" content="..."> — 글쓴이가 지정한 대표이미지
+  const m = /<meta[^>]*\bproperty="og:image"[^>]*\bcontent="([^"]+)"/i.exec(html || '')
+        || /<meta[^>]*\bcontent="([^"]+)"[^>]*\bproperty="og:image"/i.exec(html || '');
+  return m ? m[1] : '';
+}
+
+async function fetchOgImage(blogPostUrl) {
+  // 모바일 URL에서 og:image 가장 신뢰성 높음
+  const mobileUrl = blogPostUrl.replace(/^https?:\/\/blog\.naver\.com\//, 'https://m.blog.naver.com/');
+  try {
+    const html = await fetchText(mobileUrl);
+    const og = extractOgImage(html);
+    if (og) return og;
+  } catch (err) {
+    console.warn(`  [og fetch failed] ${mobileUrl}: ${err.message}`);
+  }
+  return '';
 }
 
 async function syncBlog() {
@@ -130,11 +149,26 @@ async function syncBlog() {
     const pubDate = clean(pickOne(it, 'pubDate'));
     const description = clean(pickOne(it, 'description'));
     const tag = clean(pickOne(it, 'tag'));
-    const thumb = extractFirstImage(description);
-    return { title, link, pubDate, thumb, tag };
+    const fallbackThumb = extractFirstImage(description); // og fetch 실패 시 사용
+    return { title, link, pubDate, fallbackThumb, tag };
   });
 
-  const posts = items.filter((p) => p.thumb).slice(0, 12); // 썸네일 있는 것만 (없는 글은 그리드에 안 어울림)
+  // 최신 12개에 대해 각 포스트의 og:image 병렬 조회 (= 글쓴이 지정 대표이미지)
+  const slice = items.slice(0, 12);
+  const enriched = await Promise.all(
+    slice.map(async (p) => {
+      const og = await fetchOgImage(p.link);
+      return {
+        title: p.title,
+        link: p.link,
+        pubDate: p.pubDate,
+        thumb: og || p.fallbackThumb,
+        tag: p.tag,
+      };
+    })
+  );
+
+  const posts = enriched.filter((p) => p.thumb);
 
   const data = {
     updated: new Date().toISOString(),
