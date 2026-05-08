@@ -28,10 +28,21 @@ function ensureDir(p) {
   fs.mkdirSync(p, { recursive: true });
 }
 
-async function fetchText(url) {
-  const res = await fetch(url, { headers: { 'User-Agent': UA } });
-  if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
-  return await res.text();
+async function fetchText(url, { retries = 3, baseDelayMs = 800 } = {}) {
+  let lastErr;
+  for (let i = 0; i < retries; i++) {
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      if (!res.ok) throw new Error(`${url} → HTTP ${res.status}`);
+      return await res.text();
+    } catch (err) {
+      lastErr = err;
+      if (i < retries - 1) {
+        await new Promise((r) => setTimeout(r, baseDelayMs * Math.pow(2, i)));
+      }
+    }
+  }
+  throw lastErr;
 }
 
 /**
@@ -184,16 +195,23 @@ async function syncBlog() {
 // ─────────────────────────────── main ───────────────────────────────
 
 (async () => {
+  // 일시 장애로 인한 데이터 손실 방지: 실패 시 기존 파일 유지하고 경고만 출력.
+  // 두 소스 모두 실패한 경우에만 워크플로를 실패시킴.
+  let okCount = 0;
   try {
     await syncYouTube();
+    okCount++;
   } catch (err) {
-    console.error('[youtube] FAILED:', err.message);
-    process.exitCode = 1;
+    console.warn('[youtube] WARN — keeping existing data/youtube.json:', err.message);
   }
   try {
     await syncBlog();
+    okCount++;
   } catch (err) {
-    console.error('[blog] FAILED:', err.message);
+    console.warn('[blog] WARN — keeping existing data/blog.json:', err.message);
+  }
+  if (okCount === 0) {
+    console.error('Both feeds failed — abnormal');
     process.exitCode = 1;
   }
 })();
