@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-10T22:02:47.641Z",
+  "updated": "2026-05-11T09:58:56.496Z",
   "channelId": "UCYfIeiTRMKlDdXs7fEb8EGw",
   "shorts": [
     {
@@ -111,5 +111,15 @@
       "type": "short"
     }
   ],
-  "longs": []
+  "longs": [
+    {
+      "id": "xaJOp6F0oMg",
+      "title": "검단구청장 민주당 후보 확정! 김진규 선거사무소 경선 승리 현장스케치",
+      "link": "https://www.youtube.com/watch?v=xaJOp6F0oMg",
+      "published": "2026-05-11T09:27:41+00:00",
+      "thumb": "https://i.ytimg.com/vi/xaJOp6F0oMg/hqdefault.jpg",
+      "thumbHi": "https://i.ytimg.com/vi/xaJOp6F0oMg/maxresdefault.jpg",
+      "type": "long"
+    }
+  ]
 }
