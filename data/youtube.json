@@ -1,7 +1,16 @@
 {
-  "updated": "2026-05-16T08:19:13.844Z",
+  "updated": "2026-05-16T10:36:39.355Z",
   "channelId": "UCYfIeiTRMKlDdXs7fEb8EGw",
   "shorts": [
+    {
+      "id": "NAFYrdS0hvA",
+      "title": "선거대책위원회 발대식! 승리를 향한 첫걸음",
+      "link": "https://www.youtube.com/shorts/NAFYrdS0hvA",
+      "published": "2026-05-16T08:26:32+00:00",
+      "thumb": "https://i.ytimg.com/vi/NAFYrdS0hvA/hqdefault.jpg",
+      "thumbHi": "https://i.ytimg.com/vi/NAFYrdS0hvA/maxresdefault.jpg",
+      "type": "short"
+    },
     {
       "id": "9omfAjpxqCI",
       "title": "[검단구청장 후보 김진규] 경험이 다르다! 능력이 다르다! 후보 등록 완료!",
@@ -99,15 +108,6 @@
       "published": "2026-04-21T09:27:08+00:00",
       "thumb": "https://i.ytimg.com/vi/G6bKYJmrnZk/hqdefault.jpg",
       "thumbHi": "https://i.ytimg.com/vi/G6bKYJmrnZk/maxresdefault.jpg",
-      "type": "short"
-    },
-    {
-      "id": "wQzo40fmjT0",
-      "title": "검단 주민이 묻고 김진규가 답하다! 2탄 #검단 #소통",
-      "link": "https://www.youtube.com/shorts/wQzo40fmjT0",
-      "published": "2026-04-20T09:24:26+00:00",
-      "thumb": "https://i.ytimg.com/vi/wQzo40fmjT0/hqdefault.jpg",
-      "thumbHi": "https://i.ytimg.com/vi/wQzo40fmjT0/maxresdefault.jpg",
       "type": "short"
     }
   ],
