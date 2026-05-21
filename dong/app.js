@@ -1,4 +1,15 @@
 (function(){
+  // === 동별공약 임시 비활성화 가드 ===
+  // 본선 단계 콘텐츠 정비 기간 동안 개별 동 페이지 직접 접근을 차단하고 dong/index.html로 우회.
+  // 복구 시 이 블록 전체 제거.
+  try {
+    var p = location.pathname || '';
+    if (/\/dong\/[a-z]+\.html$/i.test(p)) {
+      location.replace('./');
+      return;
+    }
+  } catch(e){}
+
   // lat/lng은 geodong.json polygon centroid (fallback용). 실제 판정은 경계 기반.
   var DONGS = [
     { slug:'geomdan',     name:'검단동',      legal:'금곡동 일대 포함', lat:37.6116, lng:126.6565, ready:true  },
