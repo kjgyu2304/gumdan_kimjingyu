@@ -1,7 +1,16 @@
 {
-  "updated": "2026-05-20T22:42:42.013Z",
+  "updated": "2026-05-21T10:01:52.428Z",
   "channelId": "UCYfIeiTRMKlDdXs7fEb8EGw",
   "shorts": [
+    {
+      "id": "4I4mS4Ew1x8",
+      "title": "🎵 검단 첫 구청장 선거, 비 속에서도 빛난 기호 1번 김진규의 첫 출정식 현장! #검단 #김진규 #검단구청장 #지방선거 #더불어민주당",
+      "link": "https://www.youtube.com/shorts/4I4mS4Ew1x8",
+      "published": "2026-05-21T02:00:56+00:00",
+      "thumb": "https://i.ytimg.com/vi/4I4mS4Ew1x8/hqdefault.jpg",
+      "thumbHi": "https://i.ytimg.com/vi/4I4mS4Ew1x8/maxresdefault.jpg",
+      "type": "short"
+    },
     {
       "id": "Yi2QJ-j_8f4",
       "title": "검단구민의 목소리, 김진규에게는 1순위 입니다 📢",
@@ -100,18 +109,27 @@
       "thumb": "https://i.ytimg.com/vi/03twOuGaDVE/hqdefault.jpg",
       "thumbHi": "https://i.ytimg.com/vi/03twOuGaDVE/maxresdefault.jpg",
       "type": "short"
-    },
-    {
-      "id": "E8orpm09GkE",
-      "title": "귤현역방문_정청래당대표_김진규 #김진규 #검단구청장 #정청래 #당대표 #검단신도시",
-      "link": "https://www.youtube.com/shorts/E8orpm09GkE",
-      "published": "2026-04-24T05:36:25+00:00",
-      "thumb": "https://i.ytimg.com/vi/E8orpm09GkE/hqdefault.jpg",
-      "thumbHi": "https://i.ytimg.com/vi/E8orpm09GkE/maxresdefault.jpg",
-      "type": "short"
     }
   ],
   "longs": [
+    {
+      "id": "d9hrA6sStRE",
+      "title": "🎵 [선거송] 검단을 향해 거침없이 달린다! 기호 1번 김진규의 '질풍가도'",
+      "link": "https://www.youtube.com/watch?v=d9hrA6sStRE",
+      "published": "2026-05-21T08:34:08+00:00",
+      "thumb": "https://i.ytimg.com/vi/d9hrA6sStRE/hqdefault.jpg",
+      "thumbHi": "https://i.ytimg.com/vi/d9hrA6sStRE/maxresdefault.jpg",
+      "type": "long"
+    },
+    {
+      "id": "qsTkPp0kClo",
+      "title": "🎵 \"검단엔 김진규가 찐이야!\" 검단구청장 후보 기호 1번 김진규 선거송 #검단 #김진규 #검단구청장 #지방선거 #선거송 #찐이야",
+      "link": "https://www.youtube.com/watch?v=qsTkPp0kClo",
+      "published": "2026-05-21T00:02:58+00:00",
+      "thumb": "https://i.ytimg.com/vi/qsTkPp0kClo/hqdefault.jpg",
+      "thumbHi": "https://i.ytimg.com/vi/qsTkPp0kClo/maxresdefault.jpg",
+      "type": "long"
+    },
     {
       "id": "xaJOp6F0oMg",
       "title": "검단구청장 민주당 후보 확정! 김진규 선거사무소 경선 승리 현장스케치",
