@@ -292,7 +292,6 @@ body{animation:pageIn 1s ease forwards}
 .camp-card:last-child{border-bottom:none}
 }
 @media(min-width:641px){
-.hero-photo{aspect-ratio:5/4}
 .prob-card,.sol-card{flex:0 0 55%}
 .news-card{flex:0 0 55%}
 .thumb-grid{grid-template-columns:repeat(3,1fr)}
@@ -304,8 +303,10 @@ body{animation:pageIn 1s ease forwards}
 @media(min-width:641px){
 html{background:#eef1f4}
 body{max-width:560px;margin:0 auto;background:#fff;box-shadow:0 0 60px rgba(0,0,0,.08);min-height:100vh}
-.nav{max-width:560px;left:50%;right:auto;transform:translateX(-50%)}
+.nav{max-width:560px;width:100%;left:50%;right:auto;transform:translateX(-50%)}
 .popup-overlay{max-width:none}
+/* 히어로는 세로 포스터(4:5)를 유지해 잘림 없이 보이도록 */
+.hero-photo{aspect-ratio:4/5}
 }
 </style>
 </head>
