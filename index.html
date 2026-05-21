@@ -300,6 +300,13 @@ body{animation:pageIn 1s ease forwards}
 .thumb-item:nth-child(3n){border-right:none}
 .yt-short{flex:0 0 30%}
 }
+/* === Desktop centering: 모바일 디자인을 PC에서도 카드 형태로 가운데 정렬 === */
+@media(min-width:641px){
+html{background:#eef1f4}
+body{max-width:560px;margin:0 auto;background:#fff;box-shadow:0 0 60px rgba(0,0,0,.08);min-height:100vh}
+.nav{max-width:560px;left:50%;right:auto;transform:translateX(-50%)}
+.popup-overlay{max-width:none}
+}
 </style>
 </head>
 <body>
