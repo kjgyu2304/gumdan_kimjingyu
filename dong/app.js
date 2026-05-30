@@ -7,7 +7,8 @@
     { slug:'dangha',      name:'당하동',      legal:'백석·시천동 포함', lat:37.5835, lng:126.6766, ready:true  },
     { slug:'oryuwanggil', name:'오류왕길동',   legal:'오류동, 왕길동',   lat:37.5907, lng:126.6373, ready:true  },
     { slug:'maljeon',     name:'마전동',      legal:'',                 lat:37.5968, lng:126.6765, ready:true  },
-    { slug:'ara',         name:'아라동',      legal:'아라1·2동',        lat:37.5931, lng:126.7106, ready:true  }
+    { slug:'ara1',        name:'아라1동',     legal:'',                 lat:37.5882, lng:126.7111, ready:true  },
+    { slug:'ara2',        name:'아라2동',     legal:'',                 lat:37.5981, lng:126.7101, ready:true  }
   ];
   var DONG_MAP = DONGS.reduce(function(m,d){ m[d.slug]=d; return m; }, {});
   window.DONGS = DONGS;
