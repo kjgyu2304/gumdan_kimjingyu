@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-02T21:23:26.485Z",
+  "updated": "2026-06-03T11:22:43.151Z",
   "channelId": "UCYfIeiTRMKlDdXs7fEb8EGw",
   "shorts": [
     {
@@ -111,5 +111,24 @@
       "type": "short"
     }
   ],
-  "longs": []
+  "longs": [
+    {
+      "id": "3oZc52-CTfM",
+      "title": "김진규 캠프 현장 라이브",
+      "link": "https://www.youtube.com/watch?v=3oZc52-CTfM",
+      "published": "2026-06-03T09:20:22+00:00",
+      "thumb": "https://i.ytimg.com/vi/3oZc52-CTfM/hqdefault.jpg",
+      "thumbHi": "https://i.ytimg.com/vi/3oZc52-CTfM/maxresdefault.jpg",
+      "type": "long"
+    },
+    {
+      "id": "5OSlMhzNL9s",
+      "title": "검단구청장 후보 김진규 전국지방선거 출구조사 현황",
+      "link": "https://www.youtube.com/watch?v=5OSlMhzNL9s",
+      "published": "2026-06-03T07:32:35+00:00",
+      "thumb": "https://i.ytimg.com/vi/5OSlMhzNL9s/hqdefault.jpg",
+      "thumbHi": "https://i.ytimg.com/vi/5OSlMhzNL9s/maxresdefault.jpg",
+      "type": "long"
+    }
+  ]
 }
