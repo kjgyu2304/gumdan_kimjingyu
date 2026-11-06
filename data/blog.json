@@ -1,7 +1,14 @@
 {
-  "updated": "2026-11-06T06:33:04.170Z",
+  "updated": "2026-11-06T16:43:27.642Z",
   "blogId": "inaive2003",
   "posts": [
+    {
+      "title": "작은 준비가 큰 침수 피해를 막습니다",
+      "link": "https://blog.naver.com/inaive2003/224467467633",
+      "pubDate": "Fri, 06 Nov 2026 17:58:00 +0900",
+      "thumb": "https://blogthumb.pstatic.net/MjAyNjExMDZfMjk0/MDAxNzkzOTU1NDc0MTcz.p555MzZ9O5jW1s5DPxSGzMHXATD-6PkIKBS9y3jD7_Ag.1RgqZ7Cti7IVhev1CCMyjQzbpQknTjx7I7pg3NKS-Jcg.JPEG/IMG%A3%DF4213.JPG?type=w2",
+      "tag": ""
+    },
     {
       "title": "누구나 안전하게 걸을 수 있는 길을 만들겠습니다",
       "link": "https://blog.naver.com/inaive2003/224466040611",
@@ -77,13 +84,6 @@
       "link": "https://blog.naver.com/inaive2003/224441101161",
       "pubDate": "Wed, 14 Oct 2026 09:39:33 +0900",
       "thumb": "https://ssl.pstatic.net/static/blog/icon/og_270x270.png",
-      "tag": ""
-    },
-    {
-      "title": "검단구의 새로운 식구가 된 신규 공무원 여러분, 진심으로 환영합니다!",
-      "link": "https://blog.naver.com/inaive2003/224440018605",
-      "pubDate": "Tue, 13 Oct 2026 11:09:29 +0900",
-      "thumb": "https://blogthumb.pstatic.net/MjAyNjEwMTNfMjIy/MDAxNzkxODU3MzUyOTIz._birDOc3ZW-YqdeOk4lbfVDVt_SG67aE6G_eiEF25tcg.dXdiaRjAwH3lHFs4F9dkkJVVIo8R63nDS-3gZa1RdE4g.JPEG/IMG%A3%DF3118.JPG?type=w2",
       "tag": ""
     }
   ]
